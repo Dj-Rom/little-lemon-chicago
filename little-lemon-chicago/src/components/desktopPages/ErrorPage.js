@@ -1,8 +1,8 @@
-import React from 'react'
-import styles from '../../styles/components_styles/errorPage.module.scss'
+import React from 'react';
+import styles from '../../styles/components_styles/errorPage.module.scss';
 
 const ErrorPage = () => {
-  document.title = 'ERROR'
+  document.title = 'ERROR';
 
   return (
     <div className={styles.error_page} role="alert" aria-live="assertive">
@@ -17,7 +17,7 @@ const ErrorPage = () => {
         Oops! Something went wrong. Please try again later.
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

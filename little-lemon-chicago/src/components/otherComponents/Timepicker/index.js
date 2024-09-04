@@ -1,15 +1,15 @@
-import React, { useState, useCallback } from 'react'
-import PropTypes from 'prop-types'
+import React, { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   TimePickerContainer,
-  TimePickerInput,
   TimePickerDropdown,
-  TimePickerDropdownToggle,
-  TimePickerDropdownMenu,
   TimePickerDropdownItem,
-} from './styles' // Ensure this path is correct
-import { changeBookingInputValue } from '../../../features/slices/pageBookingSlice'
-import { useDispatch } from 'react-redux'
+  TimePickerDropdownMenu,
+  TimePickerDropdownToggle,
+  TimePickerInput,
+} from './styles'; // Ensure this path is correct
+import { changeBookingInputValue } from '../../../features/slices/pageBookingSlice';
+import { useDispatch } from 'react-redux';
 
 const BOOKING_TIME = [
   { time: '13:00', booked: false },
@@ -30,35 +30,31 @@ const BOOKING_TIME = [
   { time: '20:30', booked: false },
   { time: '21:00', booked: false },
   { time: '21:30', booked: false },
-]
+];
 
-export default function TimePicker({
-  selectedTime,
-  placeholder,
-  onTimeChanged,
-}) {
-  const dispatch = useDispatch()
-  const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState(selectedTime || '')
+export default function TimePicker({ selectedTime, placeholder, onTimeChanged }) {
+  const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState(selectedTime || '');
 
   // Toggle dropdown visibility
-  const toggleOpen = () => setIsOpen((prev) => !prev)
+  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   // Handle time selection
   const handleTimeClick = useCallback(
     (time) => {
-      dispatch(changeBookingInputValue({ time: time }))
+      dispatch(changeBookingInputValue({ time: time }));
 
-      setSelected(time) // Update local state
+      setSelected(time); // Update local state
       if (typeof onTimeChanged === 'function') {
-        onTimeChanged(time) // Notify parent component
-        setIsOpen(false)
+        onTimeChanged(time); // Notify parent component
+        setIsOpen(false);
       } else {
-        console.error('onTimeChanged is not a function')
+        console.error('onTimeChanged is not a function');
       }
     },
-    [onTimeChanged, dispatch]
-  )
+    [onTimeChanged, dispatch],
+  );
 
   return (
     <TimePickerContainer>
@@ -78,15 +74,11 @@ export default function TimePicker({
             <TimePickerDropdownItem
               key={time.time}
               onClick={() => {
-                !time.booked && handleTimeClick(time.time)
-                toggleOpen()
+                !time.booked && handleTimeClick(time.time);
+                toggleOpen();
               }}
               disabled={time.booked} // Disable if booked
-              title={
-                time.booked
-                  ? 'Not available for booking'
-                  : 'Available for booking'
-              } // Tooltip
+              title={time.booked ? 'Not available for booking' : 'Available for booking'} // Tooltip
             >
               {time.time}
             </TimePickerDropdownItem>
@@ -94,10 +86,10 @@ export default function TimePicker({
         </TimePickerDropdownMenu>
       </TimePickerDropdown>
     </TimePickerContainer>
-  )
+  );
 }
 
 TimePicker.propTypes = {
   selectedTime: PropTypes.string,
   onTimeChanged: PropTypes.func.isRequired,
-}
+};

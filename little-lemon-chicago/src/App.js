@@ -1,142 +1,126 @@
-import React, { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import './App.css'
-import Header from './components/desktopComponents/Header'
-import Main from './components/desktopComponents/Main'
-import Footer from './components/desktopComponents/Footer'
-import FooterMobile from './components/mobileVersionComponents/FooterMobilePage'
-import {
-  clearError,
-  errorSelector,
-  setError,
-} from './features/slices/errorSlice'
-import { Alert, Box, Typography } from '@mui/material'
-import HeaderMobile from './components/mobileVersionComponents/HeaderMobile'
-import {
-  ADD_PRODUCT,
-  REMOVE_PRODUCT,
-} from './features/slices/pageOrderOnlineSlice'
-import data_menu from './data/menuData'
+import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
+import Header from './components/desktopComponents/Header';
+import Main from './components/desktopComponents/Main';
+import Footer from './components/desktopComponents/Footer';
+import FooterMobile from './components/mobileVersionComponents/FooterMobilePage';
+import { clearError, errorSelector, setError } from './features/slices/errorSlice';
+import { Alert, Box, Typography } from '@mui/material';
+import HeaderMobile from './components/mobileVersionComponents/HeaderMobile';
+import { ADD_PRODUCT, REMOVE_PRODUCT } from './features/slices/pageOrderOnlineSlice';
+import data_menu from './data/menuData';
 
 // Custom Error Boundary to catch errors in any child component
 class CustomErrorBoundary extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { hasError: false, isOffline: !navigator.onLine }
+    super(props);
+    this.state = { hasError: false, isOffline: !navigator.onLine };
   }
 
   static getDerivedStateFromError() {
-    return { hasError: true }
+    return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    this.props.dispatch(
-      setError({ type: 'errorBoundary', payload: error, errorInfo })
-    )
-    console.error('Error caught by ErrorBoundary: ', error, errorInfo)
+    this.props.dispatch(setError({ type: 'errorBoundary', payload: error, errorInfo }));
+    console.error('Error caught by ErrorBoundary: ', error, errorInfo);
   }
 
   componentDidMount() {
-    window.addEventListener('offline', this.handleOffline)
-    window.addEventListener('online', this.handleOnline)
-    window.addEventListener('error', this.handleGlobalError)
-    window.addEventListener('unhandledrejection', this.handleUnhandledRejection)
+    window.addEventListener('offline', this.handleOffline);
+    window.addEventListener('online', this.handleOnline);
+    window.addEventListener('error', this.handleGlobalError);
+    window.addEventListener('unhandledrejection', this.handleUnhandledRejection);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('offline', this.handleOffline)
-    window.removeEventListener('online', this.handleOnline)
-    window.removeEventListener('error', this.handleGlobalError)
-    window.removeEventListener(
-      'unhandledrejection',
-      this.handleUnhandledRejection
-    )
+    window.removeEventListener('offline', this.handleOffline);
+    window.removeEventListener('online', this.handleOnline);
+    window.removeEventListener('error', this.handleGlobalError);
+    window.removeEventListener('unhandledrejection', this.handleUnhandledRejection);
   }
 
   handleOffline = () => {
-    this.setState({ isOffline: true })
+    this.setState({ isOffline: true });
     this.props.dispatch(
       setError({
         errorType: 'errorBoundary',
         message: 'You are offline. Please check your internet connection.',
-      })
-    )
-  }
+      }),
+    );
+  };
 
   handleOnline = () => {
-    this.setState({ isOffline: false })
-    this.props.dispatch(clearError())
-  }
+    this.setState({ isOffline: false });
+    this.props.dispatch(clearError());
+  };
 
   handleGlobalError = (event) => {
     this.props.dispatch(
       setError({
         errorType: 'errorBoundary',
         message: 'An unexpected error occurred. Please try again later.',
-      })
-    )
-    console.error('Global error caught: ', event.error)
-    this.setState({ hasError: true })
-  }
+      }),
+    );
+    console.error('Global error caught: ', event.error);
+    this.setState({ hasError: true });
+  };
 
   handleUnhandledRejection = (event) => {
     this.props.dispatch(
       setError({
         errorType: 'errorBoundary',
-        message:
-          'An unexpected promise rejection occurred. Please try again later.',
-      })
-    )
-    console.error('Unhandled promise rejection: ', event.reason)
-    this.setState({ hasError: true })
-  }
+        message: 'An unexpected promise rejection occurred. Please try again later.',
+      }),
+    );
+    console.error('Unhandled promise rejection: ', event.reason);
+    this.setState({ hasError: true });
+  };
 
   render() {
-    return this.props.children
+    return this.props.children;
   }
 }
 
 // Functional App Component
 function App() {
-  const dispatch = useDispatch()
-  const errorSel = useSelector(errorSelector)
+  const dispatch = useDispatch();
+  const errorSel = useSelector(errorSelector);
 
-  const isMobile =
-    /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
-  const refAddedToBasket = useRef(null)
+  const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const refAddedToBasket = useRef(null);
 
   function handleClickOrderOnlineCard(e) {
-    e.preventDefault()
-    const notification = refAddedToBasket.current
+    e.preventDefault();
+    const notification = refAddedToBasket.current;
     if (notification) {
-      notification.classList.add('show')
-      notification.style.transition = 'transform 0.5s'
+      notification.classList.add('show');
+      notification.style.transition = 'transform 0.5s';
 
       setTimeout(() => {
-        notification.classList.remove('show')
-      }, 1500)
+        notification.classList.remove('show');
+      }, 1500);
     }
 
-    const role = e.target.getAttribute('type')
-    const itemId = e.target.id
+    const role = e.target.getAttribute('type');
+    const itemId = e.target.id;
 
     if (role && itemId) {
-      let item = null
+      let item = null;
       for (const category in data_menu) {
-        item = data_menu[category].find((item) => item.id === itemId)
-        if (item) break
+        item = data_menu[category].find((item) => item.id === itemId);
+        if (item) break;
       }
 
       if (item) {
         if (role === 'ADDED') {
-          dispatch(ADD_PRODUCT(item))
+          dispatch(ADD_PRODUCT(item));
         } else if (role === 'REMOVE') {
-          dispatch(REMOVE_PRODUCT(item))
+          dispatch(REMOVE_PRODUCT(item));
         }
       } else {
-        dispatch(setError('Item not found'))
+        dispatch(setError('Item not found'));
       }
     }
   }
@@ -161,13 +145,10 @@ function App() {
         </Box>
       ) : null}
       {isMobile ? <HeaderMobile /> : <Header />}
-      <Main
-        refAddedToBasket={refAddedToBasket}
-        handleClickOrderOnlineCard={handleClickOrderOnlineCard}
-      />
+      <Main refAddedToBasket={refAddedToBasket} handleClickOrderOnlineCard={handleClickOrderOnlineCard} />
       {isMobile ? <FooterMobile /> : <Footer />}
     </CustomErrorBoundary>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 
 export const userSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -16,7 +16,7 @@ export const userSchema = Yup.object({
     .matches(/^([01]\d|2[0-3]):([0-5]\d)$/, 'Invalid time format') // Added time format validation
     .required('Required'),
   occasion: Yup.string().required('Required'),
-})
+});
 
 // Define the initial values
 export const initialValues = {
@@ -26,4 +26,4 @@ export const initialValues = {
   date: '',
   time: '',
   occasion: '',
-}
+};

@@ -1,26 +1,24 @@
-import React from 'react'
+import React from 'react';
 
 const RatingReview = ({ className, rating }) => {
-  const totalStars = 5
+  const totalStars = 5;
 
   // Function to render stars
   const renderStars = () => {
-    const stars = []
+    const stars = [];
     for (let i = 1; i <= totalStars; i++) {
-      let starStyle = { color: 'gray' } // Default to gray for empty stars
+      let starStyle = { color: 'gray' }; // Default to gray for empty stars
 
       if (i <= Math.floor(rating)) {
-        starStyle.color = 'gold' // Full stars
+        starStyle.color = 'gold'; // Full stars
       } else if (i === Math.ceil(rating) && rating % 1 !== 0) {
         // Partial star
         starStyle = {
-          background: `linear-gradient(to right, gold ${
-            (rating % 1) * 100
-          }%, gray ${(rating % 1) * 100}%)`,
+          background: `linear-gradient(to right, gold ${(rating % 1) * 100}%, gray ${(rating % 1) * 100}%)`,
           color: 'transparent',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
-        }
+        };
       }
 
       stars.push(
@@ -35,13 +33,13 @@ const RatingReview = ({ className, rating }) => {
           }}
         >
           ★
-        </span>
-      )
+        </span>,
+      );
     }
-    return stars
-  }
+    return stars;
+  };
 
-  return <div className={className}>{renderStars()}</div>
-}
+  return <div className={className}>{renderStars()}</div>;
+};
 
-export default RatingReview
+export default RatingReview;

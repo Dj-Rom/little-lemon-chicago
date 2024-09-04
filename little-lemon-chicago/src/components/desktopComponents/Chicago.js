@@ -1,5 +1,5 @@
 import styles from '../../styles/components_styles/chicago.module.scss';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const Chicago = () => {
   return (

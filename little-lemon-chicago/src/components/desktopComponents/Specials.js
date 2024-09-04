@@ -1,19 +1,19 @@
-import React from 'react'
-import styles from '../../styles/components_styles/specials.module.scss'
-import { Container, Row, Col } from 'react-bootstrap'
-import Card from '../otherComponents/Card'
-import { useNavigate } from 'react-router-dom'
-import SliderMobile from '../otherComponents/Slider'
-import { useSelector } from 'react-redux'
-import { pageSelector } from '../../features/slices/pageViewSlice'
+import React from 'react';
+import styles from '../../styles/components_styles/specials.module.scss';
+import { Col, Container, Row } from 'react-bootstrap';
+import Card from '../otherComponents/Card';
+import { useNavigate } from 'react-router-dom';
+import SliderMobile from '../otherComponents/Slider';
+import { useSelector } from 'react-redux';
+import { pageSelector } from '../../features/slices/pageViewSlice';
 
 const Specials = ({ data, handleClickOrderOnlineCard }) => {
-  const navigate = useNavigate()
-  const pageSel = useSelector(pageSelector)
+  const navigate = useNavigate();
+  const pageSel = useSelector(pageSelector);
 
   const handleClick = () => {
-    navigate(' /menu')
-  }
+    navigate('/menu');
+  };
 
   return (
     <section className={styles.specials}>
@@ -22,11 +22,7 @@ const Specials = ({ data, handleClickOrderOnlineCard }) => {
           <Col lg={10} md={10} sm={10} xs={10} xl={10}>
             <div className={styles.group_title_and_btn}>
               <h1>This Week's Specials!</h1>
-              <button
-                className={styles.menu_button}
-                onClick={handleClick}
-                aria-label="View online menu"
-              >
+              <button className={styles.menu_button} onClick={handleClick} aria-label="View online menu">
                 Online Menu
               </button>
             </div>
@@ -58,7 +54,7 @@ const Specials = ({ data, handleClickOrderOnlineCard }) => {
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};
 
-export default Specials
+export default Specials;

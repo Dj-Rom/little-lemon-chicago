@@ -1,18 +1,18 @@
-import React from 'react'
-import styles from './../../styles/components_styles/card.module.scss'
-import { ReactComponent as Logo } from '../../assets/icons/buce.svg'
-import styles_mobile from '../../styles/mobile/card_mobile.module.scss'
-import { useSelector } from 'react-redux'
-import { pageSelector } from '../../features/slices/pageViewSlice'
+import React from 'react';
+import styles from './../../styles/components_styles/card.module.scss';
+import { ReactComponent as Logo } from '../../assets/icons/buce.svg';
+import styles_mobile from '../../styles/mobile/card_mobile.module.scss';
+import { useSelector } from 'react-redux';
+import { pageSelector } from '../../features/slices/pageViewSlice';
 
 const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
-  const pageSel = useSelector(pageSelector)
-  const style = pageSel.isMobile ? styles_mobile : styles
+  const pageSel = useSelector(pageSelector);
+  const style = pageSel.isMobile ? styles_mobile : styles;
 
   return (
     <div className={style.card}>
       <figure>
-        <img className={style.img_card} src={card.image} alt={card.title} />
+        <img className={style.img_card} loading={'eager'} src={card.image} alt={card.title} />
       </figure>
       <header className={style.header_card}>
         <h3>{card.title}</h3>
@@ -23,20 +23,14 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
       </main>
       {orderBtn && (
         <footer className={style.footer_card}>
-          <button
-            onClick={onClick}
-            ref={cardOrderButton}
-            id={card.id}
-            className={style.order_button}
-            type="ADDED"
-          >
+          <button onClick={onClick} ref={cardOrderButton} id={card.id} className={style.order_button} type="ADDED">
             Order a Delivery
             <Logo alt="Delivery logo" className={style.delivery_logo} />
           </button>
         </footer>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

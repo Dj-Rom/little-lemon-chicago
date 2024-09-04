@@ -1,44 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import Calendar from '../Calendar/index'
-import * as Styled from './styles'
-import { getDateISO } from '../../../helpers/calendar'
-import { changeBookingInputValue } from '../../../features/slices/pageBookingSlice'
-import { useDispatch } from 'react-redux'
-import { formatDate } from '../../../helpers/utils/formatDate'
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import Calendar from '../Calendar/index';
+import * as Styled from './styles';
+import { getDateISO } from '../../../helpers/calendar';
+import { changeBookingInputValue } from '../../../features/slices/pageBookingSlice';
+import { useDispatch } from 'react-redux';
+import { formatDate } from '../../../helpers/utils/formatDate';
 
 const Datepicker = ({ label, value, onDateChanged, tabIndex = 0 }) => {
-  const dispatch = useDispatch()
-  const [dateState, setDateState] = useState(
-    value ? getDateISO(new Date(value)) : ''
-  )
-  const [calendarOpen, setCalendarOpen] = useState(false)
+  const dispatch = useDispatch();
+  const [dateState, setDateState] = useState(value ? getDateISO(new Date(value)) : '');
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   // Toggle calendar visibility
-  const toggleCalendar = () => setCalendarOpen((prevState) => !prevState)
+  const toggleCalendar = () => setCalendarOpen((prevState) => !prevState);
 
   // Handle date change from calendar
   const handleDateChange = (date) => {
-    const newDate = date ? getDateISO(date) : ''
+    const newDate = date ? getDateISO(date) : '';
     if (newDate !== dateState) {
-      setDateState(newDate)
+      setDateState(newDate);
       if (onDateChanged) {
-        onDateChanged(newDate)
+        onDateChanged(newDate);
       }
-      dispatch(changeBookingInputValue({ date: formatDate(new Date(newDate)) }))
+      dispatch(changeBookingInputValue({ date: formatDate(new Date(newDate)) }));
     }
-    closeCalendar()
-  }
+    closeCalendar();
+  };
 
   // Close calendar
-  const closeCalendar = () => setCalendarOpen(false)
+  const closeCalendar = () => setCalendarOpen(false);
 
   // Effect to initialize date if value prop changes
   useEffect(() => {
     if (value) {
-      setDateState(getDateISO(new Date(value)))
+      setDateState(getDateISO(new Date(value)));
     }
-  }, [value])
+  }, [value]);
 
   return (
     <Styled.DatePickerContainer>
@@ -70,13 +68,13 @@ const Datepicker = ({ label, value, onDateChanged, tabIndex = 0 }) => {
         </Styled.DatePickerDropdownMenu>
       </Styled.DatePickerDropdown>
     </Styled.DatePickerContainer>
-  )
-}
+  );
+};
 
 Datepicker.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   onDateChanged: PropTypes.func,
-}
+};
 
-export default Datepicker
+export default Datepicker;

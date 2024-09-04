@@ -1,72 +1,63 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   ADD_PRODUCT,
   ORDER_SENDING_START,
   ORDER_SENDING_SUCCESS,
   orderOnlineSelector,
   REMOVE_PRODUCT,
-} from '../../features/slices/pageOrderOnlineSlice'
-import { Col, Container, Row } from 'react-bootstrap'
-import styles from '../../styles/components_styles/basket.module.scss'
-import styles_mobile from '../../styles/mobile/basket_mobile.module.scss'
-import { FiMinus, FiPlus } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
-import { Alert, Box, Stack, Typography } from '@mui/material'
-import {
-  clearError,
-  errorSelector,
-  setError,
-} from '../../features/slices/errorSlice'
-import { pageSelector } from '../../features/slices/pageViewSlice'
+} from '../../features/slices/pageOrderOnlineSlice';
+import { Col, Container, Row } from 'react-bootstrap';
+import styles from '../../styles/components_styles/basket.module.scss';
+import styles_mobile from '../../styles/mobile/basket_mobile.module.scss';
+import { FiMinus, FiPlus } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { Alert, Box, Stack, Typography } from '@mui/material';
+import { clearError, errorSelector, setError } from '../../features/slices/errorSlice';
+import { pageSelector } from '../../features/slices/pageViewSlice';
 
 const BasketPage = () => {
-  document.title = 'Restaurant Basket'
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const { orderList, orderAmount, sendingOrder } =
-    useSelector(orderOnlineSelector)
-  const { error, errorMessage } = useSelector(errorSelector)
-  const pageSel = useSelector(pageSelector)
+  document.title = 'Restaurant Basket';
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { orderList, orderAmount, sendingOrder } = useSelector(orderOnlineSelector);
+  const { error, errorMessage } = useSelector(errorSelector);
+  const pageSel = useSelector(pageSelector);
 
-  const style = pageSel.isMobile ? styles_mobile : styles
+  const style = pageSel.isMobile ? styles_mobile : styles;
 
   const handleAddProduct = (e, title, price) => {
-    e.preventDefault()
-    dispatch(ADD_PRODUCT({ title, price }))
-  }
+    e.preventDefault();
+    dispatch(ADD_PRODUCT({ title, price }));
+  };
 
   const handleRemoveProduct = (e, title, price) => {
-    e.preventDefault()
-    dispatch(REMOVE_PRODUCT({ title, price }))
-  }
+    e.preventDefault();
+    dispatch(REMOVE_PRODUCT({ title, price }));
+  };
 
   const handleOrderSubmission = () => {
     return new Promise((resolve, reject) => {
       if (orderAmount === 0) {
-        const errorMessage = 'Order amount cannot be 0$'
-        reject(errorMessage)
+        const errorMessage = 'Order amount cannot be 0$';
+        reject(errorMessage);
       } else {
-        dispatch(ORDER_SENDING_START())
-        resolve('Order sent successfully')
+        dispatch(ORDER_SENDING_START());
+        resolve('Order sent successfully');
       }
     })
       .then(() => {
         setTimeout(() => {
-          dispatch(ORDER_SENDING_SUCCESS())
-        }, 2000)
+          dispatch(ORDER_SENDING_SUCCESS());
+        }, 2000);
       })
       .catch((error) => {
-        dispatch(setError({ errorType: 'errorBasket', message: error }))
-      })
-  }
+        dispatch(setError({ errorType: 'errorBasket', message: error }));
+      });
+  };
 
   return (
-    <div
-      className={style.basket}
-      role="region"
-      aria-labelledby="basket_heading"
-    >
+    <div className={style.basket} role="region" aria-labelledby="basket_heading">
       <Box
         sx={{
           position: 'fixed',
@@ -80,9 +71,7 @@ const BasketPage = () => {
         {sendingOrder && (
           <Alert severity="success">
             <Typography variant="h6">SUCCESS</Typography>
-            <Typography>
-              Your order number {Math.floor(Math.random() * 100)}
-            </Typography>
+            <Typography>Your order number {Math.floor(Math.random() * 100)}</Typography>
           </Alert>
         )}
 
@@ -91,7 +80,7 @@ const BasketPage = () => {
             <Alert
               severity="error"
               onClose={() => {
-                dispatch(clearError())
+                dispatch(clearError());
               }}
             >
               <Typography variant="h6">ERROR</Typography>
@@ -125,18 +114,14 @@ const BasketPage = () => {
                       <button
                         className={styles.plus_minus_btn}
                         aria-label={`Remove ${item.title} from basket`}
-                        onClick={(e) =>
-                          handleRemoveProduct(e, item.title, item.price)
-                        }
+                        onClick={(e) => handleRemoveProduct(e, item.title, item.price)}
                       >
                         <FiMinus />
                       </button>
                       <button
                         className={styles.plus_minus_btn}
                         aria-label={`Add ${item.title} to basket`}
-                        onClick={(e) =>
-                          handleAddProduct(e, item.title, item.price)
-                        }
+                        onClick={(e) => handleAddProduct(e, item.title, item.price)}
                       >
                         <FiPlus />
                       </button>
@@ -174,7 +159,7 @@ const BasketPage = () => {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default BasketPage
+export default BasketPage;

@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import pageViewSlice from '../features/slices/pageViewSlice'
-import pageBookingSlice from '../features/slices/pageBookingSlice'
-import pageOrderOnlineSlice from '../features/slices/pageOrderOnlineSlice'
-import errorSlice from '../features/slices/errorSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import pageViewSlice from '../features/slices/pageViewSlice';
+import pageBookingSlice from '../features/slices/pageBookingSlice';
+import pageOrderOnlineSlice from '../features/slices/pageOrderOnlineSlice';
+import errorSlice from '../features/slices/errorSlice';
 
 export default configureStore({
   reducer: {
@@ -11,4 +11,4 @@ export default configureStore({
     error: errorSlice,
     page_order_online: pageOrderOnlineSlice,
   },
-})
+});

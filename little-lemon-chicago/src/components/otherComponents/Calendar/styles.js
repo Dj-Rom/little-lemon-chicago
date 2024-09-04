@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Arrow = styled.button`
   appearance: none;
@@ -12,7 +12,7 @@ export const Arrow = styled.button`
   border-top: 1.6em solid transparent;
   border-bottom: 1.6em solid transparent;
   transition: all 0.25s ease-out;
-`
+`;
 
 export const ArrowLeft = styled(Arrow)`
   border-right: 2.4em solid var(--Grey-700, #88958f);
@@ -20,7 +20,7 @@ export const ArrowLeft = styled(Arrow)`
   :hover {
     border-right-color: var(--Grey-700, #88958f);
   }
-`
+`;
 
 export const ArrowRight = styled(Arrow)`
   border-left: 2.4em solid var(--Grey-700, #88958f);
@@ -30,7 +30,7 @@ export const ArrowRight = styled(Arrow)`
   :hover {
     border-left-color: var(--Grey-700, #88958f);
   }
-`
+`;
 
 export const CalendarContainer = styled.div`
   font-size: 5px;
@@ -41,19 +41,19 @@ export const CalendarContainer = styled.div`
   @media (max-width: 768px) {
     width: auto;
   }
-`
+`;
 
 export const CalendarHeader = styled.div`
   display: flex;
 
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 export const CalendarGrid = styled.div`
   display: grid;
   grid-template: repeat(7, auto) / repeat(7, auto);
-`
+`;
 
 export const CalendarMonth = styled.div`
   font-weight: 500;
@@ -63,7 +63,7 @@ export const CalendarMonth = styled.div`
   padding: 0.5em 0.25em;
   word-spacing: 5px;
   user-select: none;
-`
+`;
 
 export const CalendarCell = styled.div`
   text-align: center;
@@ -72,13 +72,13 @@ export const CalendarCell = styled.div`
   padding: 0.6em 0.25em;
   user-select: none;
   grid-column: ${(props) => (props.$index % 7) + 1} / span 1;
-`
+`;
 
 export const CalendarDay = styled(CalendarCell)`
   font-weight: 600;
   font-size: 2.25em;
   color: var(--Grey-700, #88958f);
-`
+`;
 
 export const CalendarDate = styled(CalendarCell)`
   font-weight: ${(props) => (props.$inMonth ? 500 : 300)};
@@ -91,7 +91,7 @@ export const CalendarDate = styled(CalendarCell)`
     color: #var(--Grey-700, #88958f);
     background: rgba(0, 102, 204, 0.075);
   }
-`
+`;
 
 export const HighlightedCalendarDate = styled(CalendarDate)`
   color: #fff !important;
@@ -115,7 +115,7 @@ export const HighlightedCalendarDate = styled(CalendarDate)`
     border: 3px solid lightblue; /* Focus border */
     outline: none; /* Remove default focus outline */
   }
-`
+`;
 
 export const TodayCalendarDate = styled(HighlightedCalendarDate)`
   color: var(--Grey-700, #88958f) !important;
@@ -133,7 +133,7 @@ export const TodayCalendarDate = styled(HighlightedCalendarDate)`
     color: var(--Grey-700, #88958f) !important;
     background: rgba(0, 102, 204, 0.075) !important;
   }
-`
+`;
 
 export const BlockedCalendarDate = styled(CalendarDate)`
   color: black !important;
@@ -145,4 +145,4 @@ export const BlockedCalendarDate = styled(CalendarDate)`
     border-color: gray;
     cursor: default;
   }
-`
+`;

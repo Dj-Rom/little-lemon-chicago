@@ -1,46 +1,43 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import styles from '../../styles/components_styles/tabs.module.scss'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styles from '../../styles/components_styles/tabs.module.scss';
+
 export const Tabs = ({ children }) => {
-  const location = useLocation()
-  const currentPath = location.pathname
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <div className={styles.tabs}>
       <div className={styles.tabList}>
         {React.Children.map(children, (child) =>
-          child.type === TabList
-            ? React.cloneElement(child, { currentPath })
-            : null
+          child.type === TabList ? React.cloneElement(child, { currentPath }) : null,
         )}
       </div>
       <div className={styles.tabPanels}>
-        {React.Children.map(children, (child) =>
-          child.type === TabPanel ? child : null
-        )}
+        {React.Children.map(children, (child) => (child.type === TabPanel ? child : null))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const TabList = ({ children, currentPath }) => {
-  let isAnyTabActive = false
+  let isAnyTabActive = false;
 
   const tabs = React.Children.map(children, (child, index) => {
-    const isActive = child.props.to === currentPath
+    const isActive = child.props.to === currentPath;
     if (isActive) {
-      isAnyTabActive = true
+      isAnyTabActive = true;
     }
-    return React.cloneElement(child, { isActive })
-  })
+    return React.cloneElement(child, { isActive });
+  });
 
   // If no tab matches the current path, set the first tab as active
   if (!isAnyTabActive && tabs.length > 0) {
-    tabs[0] = React.cloneElement(tabs[0], { isActive: true })
+    tabs[0] = React.cloneElement(tabs[0], { isActive: true });
   }
 
-  return <div className={styles.tabList}>{tabs}</div>
-}
+  return <div className={styles.tabList}>{tabs}</div>;
+};
 
 export const Tab = ({ to, children, isActive }) => (
   <Link
@@ -50,8 +47,6 @@ export const Tab = ({ to, children, isActive }) => (
   >
     {children}
   </Link>
-)
+);
 
-export const TabPanel = ({ children }) => (
-  <div className={styles.tabPanel}>{children}</div>
-)
+export const TabPanel = ({ children }) => <div className={styles.tabPanel}>{children}</div>;

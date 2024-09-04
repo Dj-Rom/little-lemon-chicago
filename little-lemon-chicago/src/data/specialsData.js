@@ -1,6 +1,7 @@
-import greekSalad from '../assets/icons/greek salad.webp'
-import bruchetta from '../assets/icons/bruscet.webp'
-import lemonDessert from '../assets/icons/dessers_lemon.webp'
+import greekSalad from '../assets/icons/greek salad.webp';
+import bruchetta from '../assets/icons/bruscet.webp';
+import lemonDessert from '../assets/icons/dessers_lemon.webp';
+
 const specialsData = [
   {
     id: 1,
@@ -23,5 +24,5 @@ const specialsData = [
     price: '$5.00',
     text: 'This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.',
   },
-]
-export default specialsData
+];
+export default specialsData;

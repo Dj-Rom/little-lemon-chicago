@@ -1,0 +1,25 @@
+{
+  "name": "Little Lemon Restaurant",
+  "short_name": "Little Lemon",
+  "start_url": "/little-lemon",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Little Lemon is a charming restaurant offering a delightful menu with a focus on fresh, locally-sourced ingredients.",
+  "icons": [
+    {
+      "src": "./favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/webp"
+    },
+    {
+      "src": "./favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/webp"
+    },
+    {
+      "src": "./favicon/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -1,15 +1,9 @@
-import React from 'react'
-import Slider from 'react-slick'
-import styles from '../../styles/mobile/custumerSayMobile.module.scss'
-import { uuid } from 'uuidv4'
+import React from 'react';
+import Slider from 'react-slick';
+import styles from '../../styles/mobile/custumerSayMobile.module.scss';
+import { uuid } from 'uuidv4';
 
-const SliderMobile = ({
-  list,
-  amoundCards = 1.1,
-  vertical,
-  verticalSwiping,
-  dots = false,
-}) => {
+const SliderMobile = ({ list, amoundCards = 1.1, vertical, verticalSwiping, dots = false }) => {
   const settings = {
     dots: dots,
     infinite: false,
@@ -21,13 +15,13 @@ const SliderMobile = ({
     vertical,
     verticalSwiping,
     waitForAnimate: true,
-  }
+  };
 
   return (
     <div className={styles.slider_container}>
-      <Slider {...settings} key={uuid}></Slider>
+      <Slider {...settings} key={uuid} role={'slider'}></Slider>
     </div>
-  )
-}
+  );
+};
 
-export default SliderMobile
+export default SliderMobile;

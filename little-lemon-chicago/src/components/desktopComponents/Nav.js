@@ -1,37 +1,34 @@
-import React from 'react'
-import { IoBasketOutline } from 'react-icons/io5'
-import styles from '../../styles/components_styles/header.module.scss'
-import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import {
-  pageSelector,
-  setMobileMenuOpen,
-} from '../../features/slices/pageViewSlice'
-import { ReactComponent as Logo } from '../../assets/icons/Logo.svg'
-import { ImInfo } from 'react-icons/im'
-import { LuHome } from 'react-icons/lu'
-import { VscBook } from 'react-icons/vsc'
-import { MdOutlineShoppingBag } from 'react-icons/md'
-import { FiLogIn } from 'react-icons/fi'
-import { ReactComponent as ReservationSvg } from '../../assets/mobile/navIcon/reservation_mobile.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { orderOnlineSelector } from '../../features/slices/pageOrderOnlineSlice'
+import React from 'react';
+import { IoBasketOutline } from 'react-icons/io5';
+import styles from '../../styles/components_styles/header.module.scss';
+import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { pageSelector, setMobileMenuOpen } from '../../features/slices/pageViewSlice';
+import { ReactComponent as Logo } from '../../assets/icons/Logo.svg';
+import { ImInfo } from 'react-icons/im';
+import { LuHome } from 'react-icons/lu';
+import { VscBook } from 'react-icons/vsc';
+import { MdOutlineShoppingBag } from 'react-icons/md';
+import { FiLogIn } from 'react-icons/fi';
+import { ReactComponent as ReservationSvg } from '../../assets/mobile/navIcon/reservation_mobile.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { orderOnlineSelector } from '../../features/slices/pageOrderOnlineSlice';
 
 const Nav = ({ logo }) => {
-  const navigate = useNavigate()
-  const orderSel = useSelector(orderOnlineSelector)
-  const pageSel = useSelector(pageSelector)
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const orderSel = useSelector(orderOnlineSelector);
+  const pageSel = useSelector(pageSelector);
+  const dispatch = useDispatch();
 
   const handleClick = (to) => {
-    navigate(to)
-  }
+    navigate(to);
+  };
 
   return (
     <Container>
@@ -112,9 +109,9 @@ const Nav = ({ logo }) => {
                                 maxHeight: '15vh',
                               }}
                               onClick={() => {
-                                handleClick(' /')
-                                popupState.close()
-                                dispatch(setMobileMenuOpen(popupState.isOpen))
+                                handleClick('/');
+                                popupState.close();
+                                dispatch(setMobileMenuOpen(popupState.isOpen));
                               }}
                               role="menuitem"
                             >
@@ -128,8 +125,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/')
-                                popupState.close()
+                                handleClick('/');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -152,8 +149,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/about')
-                                popupState.close()
+                                handleClick('/about');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -176,8 +173,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/menu')
-                                popupState.close()
+                                handleClick('/menu');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -200,8 +197,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/booking')
-                                popupState.close()
+                                handleClick('/booking');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -224,8 +221,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/order_online')
-                                popupState.close()
+                                handleClick('/order_online');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -248,8 +245,8 @@ const Nav = ({ logo }) => {
                                 margin: '14px',
                               }}
                               onClick={() => {
-                                handleClick('/login')
-                                popupState.close()
+                                handleClick('/login');
+                                popupState.close();
                               }}
                               role="menuitem"
                             >
@@ -277,9 +274,7 @@ const Nav = ({ logo }) => {
                     role="button"
                     tabIndex={0}
                     aria-label="Basket"
-                    onKeyDown={(e) =>
-                      e.key === 'Enter' && handleClick('/basket')
-                    }
+                    onKeyDown={(e) => e.key === 'Enter' && handleClick('/basket')}
                   >
                     {orderSel.orderAmount > 0 ? (
                       <div className={styles.nav_menu_btn_basket}>
@@ -347,9 +342,7 @@ const Nav = ({ logo }) => {
                   role="menuitem"
                   tabIndex={0}
                   aria-label="Reservation"
-                  onKeyDown={(e) =>
-                    e.key === 'Enter' && handleClick('/booking')
-                  }
+                  onKeyDown={(e) => e.key === 'Enter' && handleClick('/booking')}
                 >
                   Reservation
                 </li>
@@ -359,9 +352,7 @@ const Nav = ({ logo }) => {
                   role="menuitem"
                   tabIndex={0}
                   aria-label="Order Online"
-                  onKeyDown={(e) =>
-                    e.key === 'Enter' && handleClick('/order_online')
-                  }
+                  onKeyDown={(e) => e.key === 'Enter' && handleClick('/order_online')}
                 >
                   Order online
                 </li>
@@ -404,7 +395,7 @@ const Nav = ({ logo }) => {
         </nav>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

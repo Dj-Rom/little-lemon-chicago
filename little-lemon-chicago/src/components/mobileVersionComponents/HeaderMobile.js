@@ -1,33 +1,33 @@
-import React, { useCallback } from 'react'
-import { ReactComponent as Logo } from '../../assets/icons/Logo.svg'
-import { ImInfo } from 'react-icons/im'
-import { LuHome } from 'react-icons/lu'
-import { VscBook } from 'react-icons/vsc'
-import { MdOutlineShoppingBag } from 'react-icons/md'
-import { FiLogIn } from 'react-icons/fi'
-import { ReactComponent as ReservationSvg } from '../../assets/mobile/navIcon/reservation_mobile.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { orderOnlineSelector } from '../../features/slices/pageOrderOnlineSlice'
-import styles from '../../styles/mobile/headerMobile.module.scss'
-import { IoBasketOutline } from 'react-icons/io5'
-import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state'
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
-import { setMobileMenuOpen } from '../../features/slices/pageViewSlice'
+import React, { useCallback } from 'react';
+import { ReactComponent as Logo } from '../../assets/icons/Logo.svg';
+import { ImInfo } from 'react-icons/im';
+import { LuHome } from 'react-icons/lu';
+import { VscBook } from 'react-icons/vsc';
+import { MdOutlineShoppingBag } from 'react-icons/md';
+import { FiLogIn } from 'react-icons/fi';
+import { ReactComponent as ReservationSvg } from '../../assets/mobile/navIcon/reservation_mobile.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { orderOnlineSelector } from '../../features/slices/pageOrderOnlineSlice';
+import styles from '../../styles/mobile/headerMobile.module.scss';
+import { IoBasketOutline } from 'react-icons/io5';
+import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { setMobileMenuOpen } from '../../features/slices/pageViewSlice';
 
 const HeaderMobile = () => {
-  const navigate = useNavigate()
-  const orderSel = useSelector(orderOnlineSelector)
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const orderSel = useSelector(orderOnlineSelector);
+  const dispatch = useDispatch();
 
   const handleClick = useCallback(
     (to) => {
-      navigate(to)
+      navigate(to);
     },
-    [navigate]
-  )
+    [navigate],
+  );
   return (
     <header id="main_header" className={styles.mobile_header}>
       <nav className={styles.main_header_mobile_nav}>
@@ -48,13 +48,7 @@ const HeaderMobile = () => {
               {(popupState) => (
                 <>
                   <Button {...bindTrigger(popupState)}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="35"
-                      height="25"
-                      viewBox="0 0 35 25"
-                      fill="none"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" viewBox="0 0 35 25" fill="none">
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -94,9 +88,9 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/')
-                        popupState.close()
-                        dispatch(setMobileMenuOpen(popupState.isOpen))
+                        handleClick('/');
+                        popupState.close();
+                        dispatch(setMobileMenuOpen(popupState.isOpen));
                       }}
                     >
                       <Logo />
@@ -108,8 +102,8 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/')
-                        popupState.close()
+                        handleClick('/');
+                        popupState.close();
                       }}
                     >
                       <LuHome
@@ -128,8 +122,8 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/about')
-                        popupState.close()
+                        handleClick('/about');
+                        popupState.close();
                       }}
                     >
                       <ImInfo
@@ -144,8 +138,8 @@ const HeaderMobile = () => {
                     <MenuItem
                       style={{ padding: '9px', left: '-25%' }}
                       onClick={() => {
-                        handleClick('/menu')
-                        popupState.close()
+                        handleClick('/menu');
+                        popupState.close();
                       }}
                     >
                       <VscBook
@@ -164,8 +158,8 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/booking')
-                        popupState.close()
+                        handleClick('/booking');
+                        popupState.close();
                       }}
                     >
                       <ReservationSvg /> Reservation
@@ -177,8 +171,8 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/order_online')
-                        popupState.close()
+                        handleClick('/order_online');
+                        popupState.close();
                       }}
                     >
                       <MdOutlineShoppingBag
@@ -197,8 +191,8 @@ const HeaderMobile = () => {
                         maxHeight: '15vh',
                       }}
                       onClick={() => {
-                        handleClick('/login')
-                        popupState.close()
+                        handleClick('/login');
+                        popupState.close();
                       }}
                     >
                       <FiLogIn
@@ -240,15 +234,13 @@ const HeaderMobile = () => {
                   marginTop: '-.6rem',
                 }}
               />
-              <span className={styles.nav_menu_btn_basket_amound}>
-                {orderSel.orderAmounProduct}
-              </span>
+              <span className={styles.nav_menu_btn_basket_amound}>{orderSel.orderAmounProduct}</span>
             </div>
           </li>
         </ul>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default HeaderMobile
+export default HeaderMobile;

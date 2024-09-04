@@ -1,13 +1,5 @@
-import styled from 'styled-components'
-import {
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-} from 'reactstrap'
+import styled from 'styled-components';
+import { Button, Dropdown, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from 'reactstrap';
 
 export const DatePickerContainer = styled.div`
   width: 30rem;
@@ -16,7 +8,7 @@ export const DatePickerContainer = styled.div`
   @media all and (max-width: 555px) {
     width: 90vw;
   }
-`
+`;
 
 export const DatePickerFormGroup = styled(FormGroup)`
   display: flex;
@@ -29,7 +21,7 @@ export const DatePickerFormGroup = styled(FormGroup)`
   height: 2rem;
   border: 1px solid var(--Grey-700, #88958f);
   overflow: hidden;
-`
+`;
 
 export const DatePickerLabel = styled(Label)`
   margin: 0;
@@ -44,7 +36,7 @@ export const DatePickerLabel = styled(Label)`
   align-items: center;
   justify-content: center;
   background: rgba(0, 102, 204, 0.05);
-`
+`;
 
 export const DatePickerInput = styled(Input)`
   font-weight: 500;
@@ -74,7 +66,7 @@ export const DatePickerInput = styled(Input)`
     width: 28 rem;
     border: 3px solid lightblue; /* Optional: Change placeholder color on focus */
   }
-`
+`;
 
 export const DatePickerDropdown = styled(Dropdown)`
   position: absolute;
@@ -82,7 +74,7 @@ export const DatePickerDropdown = styled(Dropdown)`
   height: 100%;
   top: 0;
   left: 0;
-`
+`;
 
 export const DatePickerDropdownToggle = styled(DropdownToggle)`
   position: relative;
@@ -91,7 +83,7 @@ export const DatePickerDropdownToggle = styled(DropdownToggle)`
   background: transparent;
   opacity: 0;
   filter: alpha(opacity=0);
-`
+`;
 
 export const DatePickerDropdownMenu = styled(DropdownMenu)`
   margin-top: 3rem;
@@ -101,7 +93,7 @@ export const DatePickerDropdownMenu = styled(DropdownMenu)`
   border: none;
   padding: 0;
   transform: none !important;
-`
+`;
 
 export const DatePickerButton = styled(Button)`
   position: absolute;
@@ -116,4 +108,4 @@ export const DatePickerButton = styled(Button)`
     color: white !important;
     background: #06c;
   }
-`
+`;

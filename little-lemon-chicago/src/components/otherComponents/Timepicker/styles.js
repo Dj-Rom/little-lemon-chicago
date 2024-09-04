@@ -1,15 +1,7 @@
-import styled from 'styled-components'
-import {
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap'
-const $colorDarkGray = '#333333'
+import styled from 'styled-components';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, FormGroup, Input, Label } from 'reactstrap';
+
+const $colorDarkGray = '#333333';
 export const TimePickerContainer = styled.div`
   width: 30rem;
   height: 2rem;
@@ -21,7 +13,7 @@ export const TimePickerContainer = styled.div`
   @media all and (max-width: 555px) {
     width: 90vw;
   }
-`
+`;
 
 export const TimePickerFormGroup = styled(FormGroup)`
   display: flex;
@@ -34,7 +26,7 @@ export const TimePickerFormGroup = styled(FormGroup)`
   height: 2rem;
   border: 1px solid ${$colorDarkGray};
   overflow: hidden;
-`
+`;
 
 export const TimePickerLabel = styled(Label)`
   margin: 0;
@@ -49,7 +41,7 @@ export const TimePickerLabel = styled(Label)`
   align-items: center;
   justify-content: center;
   background: rgba(0, 102, 204, 0.05);
-`
+`;
 
 export const TimePickerInput = styled(Input)`
   font-weight: 500;
@@ -73,7 +65,7 @@ export const TimePickerInput = styled(Input)`
     color: ${$colorDarkGray};
     font-size: 0.9rem;
   }
-`
+`;
 
 export const TimePickerDropdown = styled(Dropdown)`
   position: absolute;
@@ -81,7 +73,7 @@ export const TimePickerDropdown = styled(Dropdown)`
   top: 100%; /* Position directly below the input */
   left: 0;
   z-index: 1000; /* Ensure dropdown appears above other content */
-`
+`;
 
 export const TimePickerDropdownToggle = styled(DropdownToggle)`
   position: relative;
@@ -90,17 +82,13 @@ export const TimePickerDropdownToggle = styled(DropdownToggle)`
   background: transparent;
   opacity: 0;
   filter: alpha(opacity=0);
-`
+`;
 
 export const TimePickerDropdownMenu = styled(DropdownMenu)`
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translate3d(
-    0px,
-    5px,
-    0
-  ) !important; /* Ensuring the transform is applied */
+  transform: translate3d(0px, 5px, 0) !important; /* Ensuring the transform is applied */
   width: 100%;
   z-index: 1000;
   background-color: #fff;
@@ -117,7 +105,7 @@ export const TimePickerDropdownMenu = styled(DropdownMenu)`
   &.show {
     display: flex; /* Display flex when .show class is added */
   }
-`
+`;
 
 export const TimePickerDropdownItem = styled(DropdownItem)`
   display: flex;
@@ -132,7 +120,7 @@ export const TimePickerDropdownItem = styled(DropdownItem)`
   &:hover {
     background-color: ${(props) => (props.disabled ? '#d3d3d3' : '#f0f0f0')};
   }
-`
+`;
 
 export const TimePickerButton = styled(Button)`
   position: absolute;
@@ -148,4 +136,4 @@ export const TimePickerButton = styled(Button)`
     color: white !important;
     background: ${$colorDarkGray};
   }
-`
+`;
