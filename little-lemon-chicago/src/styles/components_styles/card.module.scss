@@ -27,7 +27,7 @@
 
   h3 {
     color: $color-dark-gray;
-    font-family: 'Markazi Text';
+    font-family: 'Markazi Text' , sans-serif;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 700;
@@ -35,11 +35,11 @@
   }
 
   span {
-    color: $color-orange;
-    font-family: Karla;
+    color: orangered;
+    font-weight: 800;
+    font-family: Karla, sans-serif;
     font-size: 1rem;
     font-style: normal;
-    font-weight: 500;
     line-height: normal;
   }
 }

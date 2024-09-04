@@ -280,7 +280,6 @@ const LoginPage = () => {
                 <TwitterLoginButton aria-label="Login with Twitter" />
               </LoginSocialTwitter>
             </div>
-            )
           </>
         </Col>
       </Row>

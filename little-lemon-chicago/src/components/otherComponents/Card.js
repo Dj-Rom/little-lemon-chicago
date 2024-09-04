@@ -10,7 +10,7 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
   const style = pageSel.isMobile ? styles_mobile : styles;
 
   return (
-    <div className={style.card}>
+    <div className={style.card} role={'product card'}>
       <figure>
         <img className={style.img_card} loading={'eager'} src={card.image} alt={card.title} />
       </figure>
