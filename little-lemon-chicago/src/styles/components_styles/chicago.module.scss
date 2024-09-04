@@ -1,0 +1,152 @@
+.our_story {
+  flex-shrink: 0;
+  width: 100%;
+  height: 64rem;
+  align-items: start;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  top: 121rem;
+
+  .our_story_contant {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    color: var(--Black, #333);
+    font-family: 'Markazi Text';
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  h2 {
+    margin-top: -0.5rem;
+    color: var(--Yellow, #f4ce14);
+    font-family: 'Markazi Text';
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  h4 {
+    color: var(--Black, #333);
+    font-family: 'Markazi Text';
+    margin-top: -2rem;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  p,
+  span {
+    color: var(--Paragraf, rgba(51, 51, 51, 0.65));
+    font-family: Karla;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    width: 52%;
+  }
+
+  span {
+    width: 100%;
+  }
+}
+
+.our_story_photos {
+  position: relative;
+  top: 6rem;
+}
+
+.our_story_photos_1,
+.our_story_photos_2 {
+  width: 14.5rem;
+  height: 19.625rem;
+}
+
+.our_story_photos_1 {
+  position: absolute;
+  top: 4rem;
+  left: 16rem;
+  z-index: 1;
+  border-radius: 1rem;
+  box-shadow: -4px 2px 4px 0px rgba(237, 239, 238, 0.65),
+    0px 4px 8px 0px rgba(237, 239, 238, 0.25);
+}
+
+.our_story_photos_2 {
+  position: absolute;
+  left: 4rem;
+  top: 10rem;
+  border-radius: 1rem;
+}
+
+@media all and (max-width: 555px) {
+  .our_story {
+    p,
+    span {
+      text-align: left;
+      width: 100%;
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .our_story {
+    .our_story_photos_2 {
+      left: 13rem;
+      top: -4rem;
+    }
+
+    .our_story_photos_1 {
+      top: 10rem;
+      left: 21rem;
+    }
+  }
+}
+
+@media all and (max-width: 1120px) {
+  .our_story {
+    .our_story_contant {
+      display: flex;
+      width: 100vw;
+      align-items: flex-start;
+      gap: 1.5rem;
+      align-content: flex-start;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      padding-right: 9rem;
+    }
+
+    margin-top: 3rem;
+    width: 100%;
+    top: 129.69rem;
+
+    h1,
+    h2,
+    h4,
+    p,
+    span {
+      width: 100%;
+    }
+
+    span {
+      width: 100vw;
+    }
+  }
+
+  .our_story_photos_1,
+  .our_story_photos_2 {
+    display: none;
+  }
+}

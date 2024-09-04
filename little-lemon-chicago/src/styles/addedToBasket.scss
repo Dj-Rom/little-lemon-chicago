@@ -1,0 +1,27 @@
+@import './variables.module';
+.added_to_basket {
+  position: fixed;
+  bottom: 0vh;
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  z-index: 2000;
+  span {
+    font-family: $font_Karla;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+  }
+  background-color: $color-dark-green;
+
+  transform: translateY(5vh);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 1.5s ease, opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.added_to_basket.show {
+  transform: translateY(0);
+  opacity: 0.9;
+  visibility: visible;
+}

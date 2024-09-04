@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/49997631-8a2c-4f2e-a2d0-8cd10a4e2154/bruscet.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240831%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240831T090651Z&X-Amz-Expires=86400&X-Amz-Signature=dc43007c1c93af88866b4232f79a13ff7f43d8d53b5959e6254fb4269e2fdf52&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22bruscet.webp%22&response-content-type=image%2Fwebp&x-id=GetObject

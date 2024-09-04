@@ -1,0 +1,112 @@
+@import '../variables.module';
+@import '../mixins.module';
+
+// Slider container styling
+.slider_container {
+  margin-top: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: $border-radius;
+}
+
+// Customer say mobile slider section styling
+.section_customer_say_mobile_slider {
+  margin-left: 0.75rem;
+}
+
+.section_customer_say_mobile_title {
+  position: relative;
+  top: 27px;
+  left: -11px;
+
+  h1 {
+    @include h1-component-style;
+    font-size: 1.6rem;
+    padding: 0 0 0 1rem;
+  }
+}
+
+.section_customer_say_mobile {
+  height: 292px;
+  margin-top: 0;
+  background-color: $color-dark-green;
+
+  h1 {
+    margin-left: 0;
+    color: $color_white;
+  }
+}
+
+// Slider container for customer reviews
+.slider_container {
+  margin-top: 2rem;
+  height: 10rem;
+  position: relative;
+  width: 103vw;
+  padding-left: 38px;
+  margin-left: -23px;
+  margin-right: -43rem;
+  display: block;
+
+  .customers {
+    display: flex;
+    height: 12rem;
+    padding: 1rem;
+    margin-left: 3px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 93%;
+    background-color: #edefee;
+    border-radius: 1rem;
+  }
+}
+
+// Photo, name, and stars styling
+.photoNameStars {
+  width: 100%;
+  display: flex;
+
+  h2 {
+    color: var(--Black, #333);
+    font-family: 'Markazi Text';
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    margin-left: 0.95rem;
+  }
+
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .ratingReview {
+    margin-left: -2rem;
+    margin-top: 1rem;
+  }
+}
+
+// Review text styling
+.review_text {
+  margin-left: 0;
+  margin-top: 1rem;
+}
+
+// Media queries for responsiveness
+@media all and (max-width: 431px) {
+  .slider_container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+  .section_customer_say_mobile_slider {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: 0;
+    min-width: 103%;
+  }
+}

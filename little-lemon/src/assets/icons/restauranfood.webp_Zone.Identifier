@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/ff43d98a-76ea-4e5b-9ee2-b676e9bad542/restauranfood.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240831%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240831T090426Z&X-Amz-Expires=86400&X-Amz-Signature=865c6ecc8d481a68e6d45dae9dc4e39fab46823155443e3078537ae8d30dcac2&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22restauranfood.webp%22&response-content-type=image%2Fwebp&x-id=GetObject

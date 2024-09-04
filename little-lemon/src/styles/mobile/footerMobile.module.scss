@@ -1,0 +1,62 @@
+@import '../variables.module';
+
+.mobile_footer {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.btn_to_top {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background-color: $color-yellow;
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+@media only screen and (max-device-width: 812px) {
+  .mobile_footer {
+    bottom: 10px;
+    right: 10px;
+    padding: 0 1rem;
+  }
+
+  .btn_to_top {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+@media only screen and (max-device-width: 736px) {
+  .mobile_footer {
+    bottom: 8px;
+    right: 8px;
+
+    padding: 0 0.5rem;
+  }
+
+  .btn_to_top {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+@media only screen and (max-device-width: 667px) {
+  .mobile_footer {
+    bottom: 12px;
+    right: 12px;
+    padding: 0 0.75rem;
+  }
+
+  .btn_to_top {
+    height: 40px;
+    width: 40px;
+  }
+}

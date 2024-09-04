@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/711243a8-eec1-45ae-8bc3-ff13c56923d9/restaurant%20chef%20B.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240831%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240831T090432Z&X-Amz-Expires=86400&X-Amz-Signature=6fc754eee96ed0796efe9b6bce0bb826b889c5cfca57e1fa20e4fed52054d4d6&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22restaurant%20chef%20B.webp%22&response-content-type=image%2Fwebp&x-id=GetObject

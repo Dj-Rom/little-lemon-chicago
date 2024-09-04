@@ -1,0 +1,139 @@
+@import '../variables.module';
+@import '../mixins.module';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.article_call_to_action {
+  position: absolute;
+  top: 0rem;
+  display: flex;
+  justify-content: center;
+  height: 19.6875rem;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: $color-dark-green;
+}
+
+.section_call_to_action {
+  flex-shrink: 0;
+
+  h1 {
+    width: 20rem;
+    margin-top: 1.5rem;
+    @include h1-component-style;
+    cursor: pointer;
+  }
+
+  h1:hover {
+    color: rgb(237, 237, 151);
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 31px #fff,
+      0 0 55px rgb(255, 226, 4), 0 0 91px rgb(255, 226, 4),
+      0 0 100px rgb(255, 226, 4), 0 0 122px rgb(255, 226, 4),
+      0 0 140px rgb(255, 226, 4);
+  }
+
+  h4 {
+    margin-top: -1rem;
+    @include h4-component-style;
+  }
+
+  width: 22rem;
+
+  p {
+    margin-top: 0.5rem;
+    @include p-component-style;
+    display: block;
+    overflow-y: auto;
+  }
+
+  .reserve_a_table {
+    cursor: pointer;
+    margin-top: 1rem;
+    @include button-component-style;
+  }
+}
+
+.rest_food_figure {
+  position: relative;
+
+  .rest_food_img {
+    margin-top: 1.5rem;
+    position: absolute;
+    right: 0rem;
+    border-radius: 1rem;
+    border-radius: $border-radius;
+  }
+}
+
+@media all and (max-width: 574px) {
+  .article_call_to_action {
+    top: -2rem;
+    height: 45rem;
+
+    p {
+      width: 100%;
+      text-align: start;
+    }
+
+    .rest_food_figure {
+      position: relative;
+      top: 0rem;
+
+      .rest_food_img {
+        margin-top: 1rem;
+        position: absolute;
+        margin-left: 0rem;
+      }
+    }
+
+    .reserve_a_table {
+      margin-top: 26rem;
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  .article_call_to_action {
+    top: -2rem;
+    height: 45rem;
+
+    p {
+      width: 100%;
+      text-align: start;
+    }
+
+    .rest_food_figure {
+      position: relative;
+      top: 0rem;
+
+      .rest_food_img {
+        margin-top: 1rem;
+        position: absolute;
+        left: 0%;
+        margin-left: 0rem;
+      }
+    }
+
+    .reserve_a_table {
+      margin-top: 26rem;
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .rest_food_figure {
+    position: relative;
+
+    .rest_food_img {
+      margin-top: 1.5rem;
+      position: absolute;
+      border-radius: 1rem;
+      border-radius: $border-radius;
+      margin-left: -4rem;
+    }
+  }
+}

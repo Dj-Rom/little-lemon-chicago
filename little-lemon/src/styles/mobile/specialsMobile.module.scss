@@ -1,0 +1,59 @@
+@import '../mixins.module';
+@import '../variables.module';
+
+.specials_mobile_section {
+  position: relative;
+  margin-top: 0;
+  height: 31rem;
+}
+
+.specials_mobile_section_title {
+  position: relative;
+  top: 26px;
+
+  h1 {
+    @include h1-component-style;
+    text-align: start;
+    color: black;
+    font-size: 1.6rem;
+    padding: 0 0 0 1rem;
+  }
+}
+
+.specials_mobile_section {
+  .special_slider_card {
+    width: 94%;
+
+    & div {
+      figure img {
+        height: 60%;
+      }
+
+      header {
+        position: relative;
+        top: 60%;
+        width: 90%;
+
+        h3,
+        span {
+          font-size: 16px;
+        }
+      }
+
+      main {
+        position: relative;
+        top: 43%;
+        width: 90%;
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .menu_button {
+    margin-top: 1rem;
+    @include button-component-style;
+  }
+}

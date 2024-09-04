@@ -1,0 +1,64 @@
+@import './variables.module';
+@mixin button-component-style(
+  $width: 200px,
+  $height: 54px,
+  $radius: 16px,
+  $padding: 16px 32px 16px 32px,
+  $gap: 10px,
+  $border: none
+) {
+  width: $width;
+  height: $height;
+  position: absolute; // or any other positioning if needed
+  border-radius: $radius;
+  padding: $padding;
+  gap: $gap;
+  font-family: $font_Karla;
+  border: $border;
+  background-color: $color-yellow;
+  color: black;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin h1-component-style(
+  $font-size: 3.75rem,
+  $font-style: normal,
+  $font-weight: 500,
+  $line-height: normal
+) {
+  font-family: $font_markazi_text;
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $resulting-color;
+}
+
+@mixin h4-component-style(
+  $font-size: 2.5rem,
+  $font-style: normal,
+  $font-weight: 400,
+  $line-height: normal
+) {
+  font-family: $font_markazi_text;
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color-light-gray;
+}
+@mixin p-component-style(
+  $font-size: 1.125rem,
+  $font-style: normal,
+  $font-weight: 500,
+  $line-height: normal
+) {
+  font-family: $font_Karla;
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color-light-gray;
+}

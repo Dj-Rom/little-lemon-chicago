@@ -1,0 +1,120 @@
+@import '../variables.module';
+@import '../mixins.module';
+
+.booking_page {
+  width: 100%;
+  position: relative;
+  top: -2rem;
+  height: 58rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
+  h1 {
+    color: $color-dark-gray;
+    font-family: $font_markazi_text;
+    margin-top: 2rem;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 500;
+    margin-left: 1rem;
+    text-align: center;
+    line-height: normal;
+  }
+
+  form {
+    display: flex;
+    position: relative;
+    left: 50%;
+    height: 38rem;
+    transform: translate(-50%);
+    text-align: start;
+    margin: 1rem;
+    padding-top: 1rem;
+    width: 33rem;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 1rem;
+    background: var(--White, #fff);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+
+    & div {
+      border-radius: 0.5rem;
+    }
+
+    #email,
+    #guests,
+    #tel,
+    #data,
+    #occasion {
+      display: flex;
+      width: 30rem;
+      height: 2rem;
+      padding: 0 1rem;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--Grey-700, #88958f);
+    }
+
+    #button_booking {
+      @include button-component-style;
+      position: relative;
+      margin: 3rem 0;
+      background-color: $color-yellow;
+      display: block;
+    }
+
+    label {
+      color: $color-dark-gray;
+      font-family: $font_Karla;
+      margin: 1rem 0 0.56rem 0;
+      font-size: 0.95rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  .booking_page {
+    h1 {
+      font-size: 7vw;
+    }
+
+    form {
+      margin: 0;
+      box-shadow: none;
+      margin-top: -1rem;
+
+      & div {
+        margin-top: -0.3rem;
+      }
+
+      #button_booking {
+        @include button-component-style;
+        position: relative;
+        width: 90vw;
+        padding: 0;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 555px) {
+  .booking_page form {
+    #email,
+    #guests,
+    #tel,
+    #data,
+    #occasion {
+      width: 90vw;
+    }
+  }
+}

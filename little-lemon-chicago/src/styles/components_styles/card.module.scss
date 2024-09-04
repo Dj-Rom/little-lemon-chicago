@@ -1,0 +1,129 @@
+@import '../mixins.module';
+
+.img_card {
+  position: absolute;
+  top: 0rem;
+  height: 14.25rem;
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  align-self: center;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.header_card {
+  align-items: flex-start;
+  align-self: stretch;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1.5rem;
+  position: absolute;
+  top: 16.75rem;
+  width: 80%;
+  flex-wrap: nowrap;
+
+  h3 {
+    color: $color-dark-gray;
+    font-family: 'Markazi Text';
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  span {
+    color: $color-orange;
+    font-family: Karla;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.main_card {
+  position: absolute;
+  width: 14rem;
+  top: 18.75rem;
+  height: 7.125rem;
+  align-self: stretch;
+
+  p {
+    @include p-component-style;
+    margin: 0.3rem 1.5rem;
+    color: $color-dark-gray;
+  }
+}
+
+.footer_card {
+  position: absolute;
+  margin: 0rem 1.5rem;
+  display: flex;
+  align-items: center;
+  top: 21.375rem;
+  width: 14rem;
+
+  .order_button {
+    display: block;
+    color: $color-dark-gray; /* Ensure this variable is defined or replace with a specific color */
+    margin-top: 4.5rem;
+    font-family: Karla, sans-serif; /* Added a fallback font */
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    background-color: transparent; /* Default background color */
+    border: none; /* Default border */
+    transition: font-size 0.3s, background-color 0.3s; /* Smooth transitions */
+  }
+
+  .delivery_logo {
+    display: inline-block;
+    position: absolute;
+    margin-top: 0rem;
+    margin-left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $color-dark-gray;
+  }
+}
+
+.card {
+  figure {
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    overflow: hidden; /* Hide overflow if necessary */
+  }
+
+  display: flex;
+  position: relative;
+  height: 28rem;
+  flex-wrap: wrap;
+  border: 1px solid $color-light-gray;
+  background-color: $color-light-gray;
+  border-radius: $border-radius;
+  flex-direction: column;
+}
+
+@media all and (max-width: 1127px) {
+  .card {
+    margin-top: 2rem;
+    width: auto;
+    margin-left: 0rem;
+    margin-right: 1rem;
+  }
+}
+
+@media all and (max-width: 1125px) {
+  .card {
+    margin-top: 2rem;
+    width: 25vw;
+    margin-left: 4rem;
+    margin-right: -2rem;
+  }
+}
