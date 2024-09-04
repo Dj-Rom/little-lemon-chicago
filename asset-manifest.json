@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/little-lemon-chicago/static/css/main.22698379.css",
-    "main.js": "/little-lemon-chicago/static/js/main.11978b47.js",
+    "main.css": "/little-lemon-chicago/static/css/main.c5a1efd7.css",
+    "main.js": "/little-lemon-chicago/static/js/main.51b97e55.js",
     "static/js/488.a494e0bb.chunk.js": "/little-lemon-chicago/static/js/488.a494e0bb.chunk.js",
     "static/media/little_lemon_inside_2.webp": "/little-lemon-chicago/static/media/little_lemon_inside_2.518884c99b20ceca40c6.webp",
     "static/media/logo_footer.webp": "/little-lemon-chicago/static/media/logo_footer.4f731344ddfcb242a9b5.webp",
@@ -61,12 +61,12 @@
     "static/media/reservation_mobile.svg": "/little-lemon-chicago/static/media/reservation_mobile.f8967669fb06d0cf02f0a80246e73791.svg",
     "static/media/buce.svg": "/little-lemon-chicago/static/media/buce.505ee8d8e66ab047491174b4fa1b5b61.svg",
     "static/media/toTop.svg": "/little-lemon-chicago/static/media/toTop.3ebb241c51d97fcb174cacb1433bbd97.svg",
-    "main.22698379.css.map": "/little-lemon-chicago/static/css/main.22698379.css.map",
-    "main.11978b47.js.map": "/little-lemon-chicago/static/js/main.11978b47.js.map",
+    "main.c5a1efd7.css.map": "/little-lemon-chicago/static/css/main.c5a1efd7.css.map",
+    "main.51b97e55.js.map": "/little-lemon-chicago/static/js/main.51b97e55.js.map",
     "488.a494e0bb.chunk.js.map": "/little-lemon-chicago/static/js/488.a494e0bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.22698379.css",
-    "static/js/main.11978b47.js"
+    "static/css/main.c5a1efd7.css",
+    "static/js/main.51b97e55.js"
   ]
 }
