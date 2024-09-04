@@ -1,4 +1,0 @@
-[ZoneTransfer]
-ZoneId=3
-ReferrerUrl=https://cloudconvert.com/
-HostUrl=https://eu-central.storage.cloudconvert.com/tasks/b392792c-706c-4277-b15c-cab93f177f7c/dessers_lemon.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240831%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240831T090651Z&X-Amz-Expires=86400&X-Amz-Signature=fefcddbb6a055826330fe9dbf9f2115dfc1e9603291593858e6a6d41c10726e7&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22dessers_lemon.webp%22&response-content-type=image%2Fwebp&x-id=GetObject
