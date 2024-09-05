@@ -160,7 +160,7 @@ const Nav = ({ logo }) => {
                               Menu
                             </MenuItem>
                             <MenuItem
-                              style={{ padding: '9px', margin: '14px' }}
+                              style={{ padding: '9px', margin: '9px' }}
                               onClick={() => {
                                 handleClick('/booking');
                                 popupState.close();

@@ -112,18 +112,24 @@
 
 @media all and (max-width: 1127px) {
   .card {
-    margin-top: 2rem;
-    width: auto;
-    margin-left: 0rem;
     margin-right: 1rem;
+    left: 7rem;
+    margin-top: 2rem;
+    width: 20vw;
   }
 }
 
 @media all and (max-width: 1125px) {
   .card {
+    left: 5rem;
     margin-top: 2rem;
     width: 25vw;
-    margin-left: 4rem;
-    margin-right: -2rem;
+  }
+}
+@media all and (max-width: 1110px) {
+  .card {
+    left: 6rem;
+    margin-top: 2rem;
+    width: 25vw;
   }
 }

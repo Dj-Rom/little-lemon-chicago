@@ -45,14 +45,7 @@ const CustomersSay = () => {
                 {ratingsList}
               </ul>
             ) : (
-              <SliderMobile
-                amoundCards={2}
-                list={
-                  <ul role="region" aria-labelledby="feedback-heading" className={styles.customer_say_ul_slider}>
-                    {ratingsList}
-                  </ul>
-                }
-              />
+              <SliderMobile className={styles.customer_say_ul_slider} amoundCards={2} list={ratingsList} />
             )}
           </Col>
         </Row>
