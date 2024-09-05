@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/little-lemon-chicago/static/css/main.82e4c452.css",
-    "main.js": "/little-lemon-chicago/static/js/main.8337b0c6.js",
+    "main.css": "/little-lemon-chicago/static/css/main.562f541a.css",
+    "main.js": "/little-lemon-chicago/static/js/main.ee82f3a9.js",
     "static/js/488.a494e0bb.chunk.js": "/little-lemon-chicago/static/js/488.a494e0bb.chunk.js",
     "static/media/little_lemon_inside_2.webp": "/little-lemon-chicago/static/media/little_lemon_inside_2.518884c99b20ceca40c6.webp",
     "static/media/logo_footer.webp": "/little-lemon-chicago/static/media/logo_footer.4f731344ddfcb242a9b5.webp",
@@ -61,12 +61,12 @@
     "index.html": "/little-lemon-chicago/index.html",
     "static/media/buce.svg": "/little-lemon-chicago/static/media/buce.505ee8d8e66ab047491174b4fa1b5b61.svg",
     "static/media/toTop.svg": "/little-lemon-chicago/static/media/toTop.3ebb241c51d97fcb174cacb1433bbd97.svg",
-    "main.82e4c452.css.map": "/little-lemon-chicago/static/css/main.82e4c452.css.map",
-    "main.8337b0c6.js.map": "/little-lemon-chicago/static/js/main.8337b0c6.js.map",
+    "main.562f541a.css.map": "/little-lemon-chicago/static/css/main.562f541a.css.map",
+    "main.ee82f3a9.js.map": "/little-lemon-chicago/static/js/main.ee82f3a9.js.map",
     "488.a494e0bb.chunk.js.map": "/little-lemon-chicago/static/js/488.a494e0bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.82e4c452.css",
-    "static/js/main.8337b0c6.js"
+    "static/css/main.562f541a.css",
+    "static/js/main.ee82f3a9.js"
   ]
 }
