@@ -31,11 +31,11 @@ const CallToAction = () => {
           <Col className={styles.rest_food_figure} lg={2} md={0} sm={0} xl={2}></Col>
           <Col className={styles.rest_food_figure} lg={4} md={10} sm={10} xl={4}>
             <img
+              fetchPriority="high"
               className={styles.rest_food_img}
               loading={'eager'}
-              src={restaurantFoodImg}
+              src={restaurantFoodImg || '/little-lemon-chicago/static/media/restauranfood 1.dfa2905d60af8a2cb086.webp'}
               alt="Restaurant food"
-              fetchpriority="high"
             />
           </Col>
         </Row>
