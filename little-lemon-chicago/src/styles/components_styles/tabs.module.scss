@@ -21,6 +21,7 @@
   }
 
   .tab {
+
     padding: 1rem;
     text-decoration: none;
     color: #333;
@@ -37,9 +38,11 @@
     color: $color-orange;
     border-bottom: 2px solid $color-orange;
     padding: 1rem;
-    font-size: larger;
-    margin-bottom: 0;
     text-decoration: none;
+
+    border-radius: 4px;
+    height: 3rem;
+    font-size: larger;
 
     &:hover,
     &:active,
@@ -81,11 +84,11 @@
 }
 
 @media all and (max-width: 993px) {
-  .tabList {
-    left: 0.3rem;
+  .tabs {
+    .tabList {
+      left: 1rem;}
   }
 }
-
 @media all and (max-width: 768px) {
   .tabList {
     left: 0rem;
