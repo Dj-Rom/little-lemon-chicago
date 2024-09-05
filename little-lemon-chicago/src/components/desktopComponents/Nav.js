@@ -39,17 +39,7 @@ const Nav = ({ logo }) => {
               <>
                 <Col lg={1} md={1} sm={1} xs={1} xl={1}>
                   <li className={styles.nav_menu_btn} role="none">
-                    <PopupState
-                      variant="popover"
-                      popupId="menuPopover"
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'nowrap',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        maxHeight: '100vh',
-                      }}
-                    >
+                    <PopupState variant="popover" popupId="menuPopover">
                       {(popupState) => (
                         <>
                           <Button
@@ -84,13 +74,9 @@ const Nav = ({ logo }) => {
                                 height: 'calc(100vh - 16px)',
                                 boxShadow: '17px 0px 263px 76px black',
                                 overflowY: 'auto',
-                                maxHeight: 'calc(100vh - 22px) !important',
-                                minHeight: 'calc(100vh - 16px) !important',
                                 left: '0 !important',
                                 top: '0 !important',
                                 position: 'fixed',
-                                alignContent: 'flex-start',
-                                marginTop: '0',
                                 padding: '0',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -103,7 +89,6 @@ const Nav = ({ logo }) => {
                           >
                             <MenuItem
                               style={{
-                                left: '-25vw',
                                 padding: '9px',
                                 marginTop: ' -41vh',
                                 maxHeight: '15vh',
@@ -118,12 +103,7 @@ const Nav = ({ logo }) => {
                               <Logo aria-label="Logo" />
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: '-26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/');
                                 popupState.close();
@@ -142,12 +122,7 @@ const Nav = ({ logo }) => {
                               Home
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: '-26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/about');
                                 popupState.close();
@@ -166,12 +141,7 @@ const Nav = ({ logo }) => {
                               About
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: '-26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/menu');
                                 popupState.close();
@@ -190,12 +160,7 @@ const Nav = ({ logo }) => {
                               Menu
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: ' -26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/booking');
                                 popupState.close();
@@ -208,18 +173,12 @@ const Nav = ({ logo }) => {
                                   height: '4rem',
                                   width: '4rem',
                                   marginLeft: '-1rem',
-                                  marginRight: '0px',
                                 }}
                               />
                               Reservation
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: '-26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/order_online');
                                 popupState.close();
@@ -238,12 +197,7 @@ const Nav = ({ logo }) => {
                               Order online
                             </MenuItem>
                             <MenuItem
-                              style={{
-                                padding: '9px',
-                                left: '-26vw',
-                                maxHeight: '15vh',
-                                margin: '14px',
-                              }}
+                              style={{ padding: '9px', margin: '14px' }}
                               onClick={() => {
                                 handleClick('/login');
                                 popupState.close();
@@ -301,23 +255,13 @@ const Nav = ({ logo }) => {
                   onClick={() => handleClick('/')}
                   role="menuitem"
                   tabIndex={0}
-                  aria-label="Logo"
-                  onKeyDown={(e) => e.key === 'Enter' && handleClick('/')}
-                >
-                  {logo}
-                </li>
-                <li
-                  className={styles.nav_menu_btn}
-                  onClick={() => handleClick('/')}
-                  role="menuitem"
-                  tabIndex={0}
                   aria-label="Home"
                   onKeyDown={(e) => e.key === 'Enter' && handleClick('/')}
                 >
-                  Home
+                  <Logo aria-label="Logo" />
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_list}
                   onClick={() => handleClick('/about')}
                   role="menuitem"
                   tabIndex={0}
@@ -327,7 +271,7 @@ const Nav = ({ logo }) => {
                   About
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_list}
                   onClick={() => handleClick('/menu')}
                   role="menuitem"
                   tabIndex={0}
@@ -337,17 +281,17 @@ const Nav = ({ logo }) => {
                   Menu
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_list}
                   onClick={() => handleClick('/booking')}
                   role="menuitem"
                   tabIndex={0}
-                  aria-label="Reservation"
+                  aria-label="Booking"
                   onKeyDown={(e) => e.key === 'Enter' && handleClick('/booking')}
                 >
                   Reservation
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_list}
                   onClick={() => handleClick('/order_online')}
                   role="menuitem"
                   tabIndex={0}
@@ -357,7 +301,7 @@ const Nav = ({ logo }) => {
                   Order online
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_list}
                   onClick={() => handleClick('/login')}
                   role="menuitem"
                   tabIndex={0}
@@ -367,27 +311,21 @@ const Nav = ({ logo }) => {
                   Login
                 </li>
                 <li
-                  className={styles.nav_menu_btn}
+                  className={styles.nav_menu_btn_basket}
                   onClick={() => handleClick('/basket')}
-                  role="menuitem"
+                  role="button"
                   tabIndex={0}
                   aria-label="Basket"
                   onKeyDown={(e) => e.key === 'Enter' && handleClick('/basket')}
                 >
-                  {orderSel.orderAmount > 0 ? (
-                    <div className={styles.nav_menu_btn_basket}>
-                      <IoBasketOutline
-                        style={{
-                          height: '2rem',
-                          width: '2rem',
-                          marginTop: '-.6rem',
-                        }}
-                      />
-                      <span aria-live="polite">${orderSel.orderAmount}</span>
-                    </div>
-                  ) : (
-                    ''
-                  )}
+                  <IoBasketOutline
+                    style={{
+                      height: '2rem',
+                      width: '2rem',
+                      marginTop: '-.6rem',
+                    }}
+                  />
+                  {orderSel.orderAmount > 0 ? <span aria-live="polite">${orderSel.orderAmount}</span> : ''}
                 </li>
               </>
             )}

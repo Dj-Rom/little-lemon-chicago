@@ -6,7 +6,7 @@ import { VscBook } from 'react-icons/vsc';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import { FiLogIn } from 'react-icons/fi';
 import { ReactComponent as ReservationSvg } from '../../assets/mobile/navIcon/reservation_mobile.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { orderOnlineSelector } from '../../features/slices/pageOrderOnlineSlice';
 import styles from '../../styles/mobile/headerMobile.module.scss';
@@ -15,12 +15,10 @@ import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { setMobileMenuOpen } from '../../features/slices/pageViewSlice';
 
 const HeaderMobile = () => {
   const navigate = useNavigate();
   const orderSel = useSelector(orderOnlineSelector);
-  const dispatch = useDispatch();
 
   const handleClick = useCallback(
     (to) => {
@@ -28,27 +26,26 @@ const HeaderMobile = () => {
     },
     [navigate],
   );
+
   return (
     <header id="main_header" className={styles.mobile_header}>
-      <nav className={styles.main_header_mobile_nav}>
-        <ul className={styles.main_header_mobile_nav_ul}>
-          <li className={styles.main_header_mobile_nav_ul_btn_menu}>
-            <PopupState
-              sx={{
-                display: 'flex',
-                flexWrap: 'nowrap',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                maxHeight: '100vh !important',
-                height: '100vh !important',
-              }}
-              variant="popover"
-              popupId="demoPopover"
-            >
+      <nav className={styles.main_header_mobile_nav} role="navigation" aria-label="Main Navigation">
+        <ul className={styles.main_header_mobile_nav_ul} role="menubar">
+          {/* Menu Button */}
+          <li className={styles.main_header_mobile_nav_ul_btn_menu} role="none">
+            <PopupState variant="popover" popupId="menuPopover">
               {(popupState) => (
                 <>
-                  <Button {...bindTrigger(popupState)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" viewBox="0 0 35 25" fill="none">
+                  <Button {...bindTrigger(popupState)} aria-haspopup="true" aria-expanded={popupState.isOpen}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="35"
+                      height="25"
+                      viewBox="0 0 35 25"
+                      fill="none"
+                      aria-labelledby="menuIconTitle"
+                    >
+                      <title id="menuIconTitle">Open Menu</title>
                       <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -59,149 +56,89 @@ const HeaderMobile = () => {
                   </Button>
                   <Menu
                     {...bindMenu(popupState)}
+                    aria-label="Navigation Menu"
+                    role="menu"
                     PaperProps={{
                       sx: {
                         width: '80vw',
                         height: 'calc(100vh - 16px)',
-                        overflowY: 'auto',
-                        maxHeight: 'calc(100vh - 22px) !important',
-                        minHeight: 'calc(100vh - 16px) !important',
                         boxShadow: '17px 0px 263px 76px black',
-                        left: '0 !important',
-                        top: '0 !important',
+                        overflowY: 'auto',
+                        maxHeight: 'calc(100vh - 22px)',
+                        minHeight: 'calc(100vh - 16px)',
+                        left: '0',
+                        top: '0',
                         position: 'fixed',
-                        alignContent: 'flex-start',
-                        marginTop: '0',
-                        padding: '0',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
                       },
                     }}
                   >
                     <MenuItem
-                      style={{
-                        left: '-26%',
-                        padding: '9px',
-                        marginTop: ' -45vh',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/');
                         popupState.close();
-                        dispatch(setMobileMenuOpen(popupState.isOpen));
                       }}
+                      role="menuitem"
                     >
-                      <Logo />
+                      <Logo aria-label="Logo" />
                     </MenuItem>
                     <MenuItem
-                      style={{
-                        padding: '9px',
-                        left: '-25%',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <LuHome
-                        style={{
-                          width: '47px',
-                          height: '25px',
-                          maxHeight: '15vh',
-                        }}
-                      />
+                      <LuHome aria-label="Home" style={{ width: '47px', height: '25px' }} />
                       Home
                     </MenuItem>
                     <MenuItem
-                      style={{
-                        padding: '9px',
-                        left: '-25%',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/about');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <ImInfo
-                        style={{
-                          width: '47px',
-                          height: '25px',
-                          maxHeight: '15vh',
-                        }}
-                      />
+                      <ImInfo aria-label="About" style={{ width: '47px', height: '25px' }} />
                       About
                     </MenuItem>
                     <MenuItem
-                      style={{ padding: '9px', left: '-25%' }}
                       onClick={() => {
                         handleClick('/menu');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <VscBook
-                        style={{
-                          width: '47px',
-                          height: '25px',
-                          maxHeight: '15vh',
-                        }}
-                      />
+                      <VscBook aria-label="Menu" style={{ width: '47px', height: '25px' }} />
                       Menu
                     </MenuItem>
                     <MenuItem
-                      style={{
-                        padding: '9px',
-                        left: '-25%',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/booking');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <ReservationSvg /> Reservation
+                      <ReservationSvg aria-label="Reservation" />
+                      Reservation
                     </MenuItem>
                     <MenuItem
-                      style={{
-                        padding: '9px',
-                        left: '-25%',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/order_online');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <MdOutlineShoppingBag
-                        style={{
-                          width: '47px',
-                          height: '25px',
-                          maxHeight: '15vh',
-                        }}
-                      />
+                      <MdOutlineShoppingBag aria-label="Order Online" style={{ width: '47px', height: '25px' }} />
                       Order online
                     </MenuItem>
                     <MenuItem
-                      style={{
-                        padding: '9px',
-                        left: '-25%',
-                        maxHeight: '15vh',
-                      }}
                       onClick={() => {
                         handleClick('/login');
                         popupState.close();
                       }}
+                      role="menuitem"
                     >
-                      <FiLogIn
-                        style={{
-                          width: '47px',
-                          height: '25px',
-                          maxHeight: '15vh',
-                        }}
-                      />{' '}
+                      <FiLogIn aria-label="Login" style={{ width: '47px', height: '25px' }} />
                       Login
                     </MenuItem>
                   </Menu>
@@ -209,33 +146,30 @@ const HeaderMobile = () => {
               )}
             </PopupState>
           </li>
-          <li
-            className={styles.main_header_mobile_nav_ul_btn_logo}
-            onClick={() => handleClick('/')}
-            role="button"
-            tabIndex={0}
-            style={{ left: '0%' }}
-            onKeyDown={(e) => e.key === 'Enter' && handleClick('/')}
-          >
-            <Logo />
+
+          {/* Logo Button */}
+          <li className={styles.main_header_mobile_nav_ul_btn_logo} role="menuitem">
+            <button onClick={() => handleClick('/')} aria-label="Home" style={{ border: 'none', background: 'none' }}>
+              <Logo />
+            </button>
           </li>
-          <li
-            className={styles.main_header_mobile_nav_ul_btn_basket}
-            onClick={() => handleClick('/basket')}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleClick('/basket')}
-          >
-            <div className={styles.nav_menu_btn_basket}>
-              <IoBasketOutline
-                style={{
-                  height: '2rem',
-                  width: '2rem',
-                  marginTop: '-.6rem',
-                }}
-              />
-              <span className={styles.nav_menu_btn_basket_amound}>{orderSel.orderAmounProduct}</span>
-            </div>
+
+          {/* Basket Button */}
+          <li className={styles.main_header_mobile_nav_ul_btn_basket} role="menuitem">
+            <button
+              onClick={() => handleClick('/basket')}
+              aria-label="Basket"
+              style={{ border: 'none', background: 'none' }}
+            >
+              <div className={styles.nav_menu_btn_basket}>
+                <IoBasketOutline style={{ height: '2rem', width: '2rem', marginTop: '-.6rem' }} role={'basket'} />
+                {orderSel.orderAmounProduct !== 0 && (
+                  <span className={styles.nav_menu_btn_basket_amount} style={{ color: 'black' }}>
+                    {orderSel.orderAmounProduct}
+                  </span>
+                )}
+              </div>
+            </button>
           </li>
         </ul>
       </nav>

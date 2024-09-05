@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Header from './components/desktopComponents/Header';
@@ -10,6 +10,7 @@ import { Alert, Box, Typography } from '@mui/material';
 import HeaderMobile from './components/mobileVersionComponents/HeaderMobile';
 import { ADD_PRODUCT, REMOVE_PRODUCT } from './features/slices/pageOrderOnlineSlice';
 import data_menu from './data/menuData';
+import { pageSelector } from './features/slices/pageViewSlice';
 
 // Custom Error Boundary to catch errors in any child component
 class CustomErrorBoundary extends React.Component {
@@ -87,9 +88,12 @@ class CustomErrorBoundary extends React.Component {
 function App() {
   const dispatch = useDispatch();
   const errorSel = useSelector(errorSelector);
-
-  const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const refAddedToBasket = useRef(null);
+  const pageSel = useSelector(pageSelector);
+
+  useEffect(() => {
+    // Chrome message listener removed
+  }, []);
 
   function handleClickOrderOnlineCard(e) {
     e.preventDefault();
@@ -104,7 +108,7 @@ function App() {
     }
 
     const role = e.target.getAttribute('type');
-    const itemId = e.target.id;
+    const itemId = e.target.id || e.target.parentNode.id;
 
     if (role && itemId) {
       let item = null;
@@ -144,9 +148,9 @@ function App() {
           </Alert>
         </Box>
       ) : null}
-      {isMobile ? <HeaderMobile /> : <Header />}
+      {pageSel.isMobile ? <HeaderMobile /> : <Header />}
       <Main refAddedToBasket={refAddedToBasket} handleClickOrderOnlineCard={handleClickOrderOnlineCard} />
-      {isMobile ? <FooterMobile /> : <Footer />}
+      {pageSel.isMobile ? <FooterMobile /> : <Footer />}
     </CustomErrorBoundary>
   );
 }

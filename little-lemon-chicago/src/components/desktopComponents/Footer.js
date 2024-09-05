@@ -85,17 +85,17 @@ const Footer = () => {
           </Col>
           <Col md={3} lg={3} sm={4} xs={4}>
             <section className={styles.footer_contact}>
+              <h3>Contact</h3>
               <ul className={styles.footer_contact_ul} aria-label="Contact Information">
-                <h3>Contact</h3>
-                <li>
+                <li aria-roledescription={'adress'}>
                   <span>Address: 123 Citrus Lane Chicago, IL 60614</span>
                 </li>
-                <li>
+                <li aria-roledescription={'email'}>
                   <a href="mailto:info@littlelemon.com" aria-label="Email us">
                     Email: info@littlelemon.com
                   </a>
                 </li>
-                <li>
+                <li aria-roledescription={'telefon number'}>
                   <a href="tel:+1(312) 555-6789" aria-label="Call us">
                     Tel: (312) 555-6789
                   </a>
@@ -105,8 +105,8 @@ const Footer = () => {
           </Col>
           <Col md={1} lg={1} sm={3} xs={6}>
             <section className={styles.footer_social}>
+              <h3>Social</h3>
               <ul className={styles.footer_social_ul}>
-                <h3>Social</h3>
                 <li>
                   <a href="https://www.youtube.com/" aria-label="YouTube">
                     <TiSocialYoutube style={{ height: '2rem', width: '2rem' }} />

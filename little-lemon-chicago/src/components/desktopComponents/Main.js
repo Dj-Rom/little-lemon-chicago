@@ -21,15 +21,15 @@ const Main = ({ handleClickOrderOnlineCard, refAddedToBasket }) => {
   const dispatch = useDispatch();
   const pageSel = useSelector(pageSelector);
 
-  const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
   useEffect(() => {
     const handleResizeOrLocationChange = () => {
       const currentWidth = window.innerWidth;
       const widthDifference = Math.abs(currentWidth - pageSel.lastWidth);
 
-      if (pageSel.isMobile !== isMobile) {
-        dispatch(setMobile(isMobile));
+      if (
+        pageSel.isMobile !== /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      ) {
+        dispatch(setMobile(/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)));
       }
 
       if (widthDifference >= 5 || location.pathname) {
@@ -45,7 +45,7 @@ const Main = ({ handleClickOrderOnlineCard, refAddedToBasket }) => {
 
     window.addEventListener('resize', handleResizeOrLocationChange);
     return () => window.removeEventListener('resize', handleResizeOrLocationChange);
-  }, [location.pathname, dispatch, isMobile, pageSel.isMobile, pageSel.lastWidth]);
+  }, [location.pathname, dispatch, pageSel.isMobile, pageSel.lastWidth]);
 
   return (
     <main id="main_main" className={styles.main}>

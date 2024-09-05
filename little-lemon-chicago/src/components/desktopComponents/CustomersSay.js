@@ -11,16 +11,16 @@ const CustomersSay = () => {
   const pageSel = useSelector(pageSelector);
 
   const renderRatingItem = (e) => (
-    <Col key={e.id || e.name}>
-      <li className={styles.rating_li}>
+    <li className={styles.rating_li} key={e.id || e.name}>
+      <Col>
         <img src={e.img} alt={e.name} loading="lazy" style={{ width: '30', height: 'auto' }} />
         <h2>{e.name}</h2>
         <RatingReview className={styles.stars_rating} rating={e.title} />
         <p>
           <ImQuotesLeft /> {e.reviewText}
         </p>
-      </li>
-    </Col>
+      </Col>
+    </li>
   );
 
   const ratingsList =
@@ -45,9 +45,14 @@ const CustomersSay = () => {
                 {ratingsList}
               </ul>
             ) : (
-              <ul role="region" aria-labelledby="feedback-heading" className={styles.customer_say_ul_slider}>
-                <SliderMobile amoundCards={2} list={ratingsList} />
-              </ul>
+              <SliderMobile
+                amoundCards={2}
+                list={
+                  <ul role="region" aria-labelledby="feedback-heading" className={styles.customer_say_ul_slider}>
+                    {ratingsList}
+                  </ul>
+                }
+              />
             )}
           </Col>
         </Row>

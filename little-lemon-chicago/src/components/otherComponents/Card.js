@@ -10,7 +10,7 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
   const style = pageSel.isMobile ? styles_mobile : styles;
 
   return (
-    <div className={style.card} role={'product card'}>
+    <div className={style.card} role={'region'} aria-label={'product card'}>
       <figure>
         <img className={style.img_card} loading={'eager'} src={card.image} alt={card.title} />
       </figure>
@@ -25,7 +25,7 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
         <footer className={style.footer_card}>
           <button onClick={onClick} ref={cardOrderButton} id={card.id} className={style.order_button} type="ADDED">
             Order a Delivery
-            <Logo alt="Delivery logo" className={style.delivery_logo} />
+            <Logo onClick={onClick} alt="Delivery logo" className={style.delivery_logo} type="ADDED" />
           </button>
         </footer>
       )}
