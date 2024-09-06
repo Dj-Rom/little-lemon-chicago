@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './../../styles/components_styles/card.module.scss';
-import Logo  from '../../assets/icons/buce.svg';
+import urlLogoCar  from '../../assets/icons/buce.svg';
 import styles_mobile from '../../styles/mobile/card_mobile.module.scss';
 import { useSelector } from 'react-redux';
 import { pageSelector } from '../../features/slices/pageViewSlice';
@@ -25,7 +25,7 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
         <footer className={style.footer_card}>
           <button onClick={onClick} ref={cardOrderButton} id={card.id} className={style.order_button} type="ADDED">
             Order a Delivery
-            <img src={Logo}  alt="Delivery logo" className={style.delivery_logo} type="ADDED" />
+            <img src={urlLogoCar}  alt="Delivery logo" className={style.delivery_logo} type="ADDED" />
           </button>
         </footer>
       )}
