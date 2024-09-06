@@ -18,7 +18,6 @@ import { Alert, Box, Typography } from '@mui/material';
 import { alertMessage, pageSelector, setLoading, toggleRender } from '../../features/slices/pageViewSlice';
 import { useNavigate } from 'react-router-dom';
 import { clearError, errorSelector, setError } from '../../features/slices/errorSlice';
-
 const BookingPage = () => {
   document.title = 'Restaurant Booking';
   const dispatch = useDispatch();
@@ -28,10 +27,10 @@ const BookingPage = () => {
   const pageViewSel = useSelector(pageSelector);
   const formRef = useRef(null);
 
+
   // LOADER
   const [progress, setProgress] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
-
   const progressRef = React.useRef(() => {});
   React.useEffect(() => {
     progressRef.current = () => {
@@ -46,7 +45,6 @@ const BookingPage = () => {
       }
     };
   });
-
   React.useEffect(() => {
     const timer = setInterval(() => {
       progressRef.current();
@@ -56,7 +54,6 @@ const BookingPage = () => {
       clearInterval(timer);
     };
   }, []);
-
   const initialFormikValues = {
     ...initialValues,
     ...bookingSel,
@@ -66,6 +63,7 @@ const BookingPage = () => {
 
   const handleFieldChange = (field, value) => {
     dispatch(changeBookingInputValue({ [field]: value }));
+
   };
   const handleSubmit = (values, resetForm, setValues) => {
     new Promise((resolve, reject) => {
@@ -186,6 +184,7 @@ const BookingPage = () => {
                       {({ field }) => (
                         <>
                           <Input
+                              aria-label="On Click"
                             {...field}
                             type="email"
                             id={styles.email}
@@ -215,6 +214,7 @@ const BookingPage = () => {
                       {({ field }) => (
                         <>
                           <Input
+                              aria-label="On Click"
                             tabIndex={0}
                             {...field}
                             type="text"
@@ -249,6 +249,7 @@ const BookingPage = () => {
                         return (
                           <>
                             <Input
+                                aria-label="On Click"
                               tabIndex={0}
                               {...field}
                               type="text"
@@ -282,11 +283,12 @@ const BookingPage = () => {
                     <Datepicker
                       tabIndex={0}
                       id={styles.date}
+                      aria-label="On Click"
                       selected={(values.date = bookingSel.date)}
                       onChange={(dates) => {
                         const [start] = dates;
                         if (start) {
-                          const formattedDate = bookingSel.dat.format('YYYY-MM-DD');
+                          const formattedDate = bookingSel.date.format('YYYY-MM-DD');
                           setFieldValue('date', formattedDate);
                           handleFieldChange('date', formattedDate);
                           setErrors('date', true);
@@ -323,6 +325,7 @@ const BookingPage = () => {
                       as="select"
                       name="occasion"
                       id={styles.occasion}
+                      aria-label="On Click"
                       onChange={(e) => {
                         setFieldValue('occasion', e.target.value);
                         handleFieldChange('occasion', e.target.value);

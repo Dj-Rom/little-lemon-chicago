@@ -2,6 +2,7 @@
 
 .footer_page {
   display: flex;
+
   background-color: $color-dark-green;
   position: absolute;
   width: 100%;
@@ -10,11 +11,12 @@
   justify-content: center;
   align-items: flex-start;
   color: $color-light-gray;
+  top:150vw;
   box-shadow: 1px 1px 23px 1px #495e57;
 }
 
 .footer_page_logo {
-  margin: 1.3rem 2.5rem 0rem -2rem;
+  margin: 1.6rem 2.5rem 0rem -2rem;
 
   cursor: pointer;
 }

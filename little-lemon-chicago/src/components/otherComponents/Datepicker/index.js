@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Calendar from '../Calendar/index';
 import * as Styled from './styles';
 import { getDateISO } from '../../../helpers/calendar';
-import { changeBookingInputValue } from '../../../features/slices/pageBookingSlice';
+import {changeBookingInputValue, setFreeTimeForReservation} from '../../../features/slices/pageBookingSlice';
 import { useDispatch } from 'react-redux';
 import { formatDate } from '../../../helpers/utils/formatDate';
+import {fetchAPI} from "../../../apiForm";
 
 const Datepicker = ({ label, value, onDateChanged, tabIndex = 0 }) => {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ const Datepicker = ({ label, value, onDateChanged, tabIndex = 0 }) => {
       if (onDateChanged) {
         onDateChanged(newDate);
       }
+
+      dispatch(setFreeTimeForReservation(fetchAPI()));
       dispatch(changeBookingInputValue({ date: formatDate(new Date(newDate)) }));
     }
     closeCalendar();

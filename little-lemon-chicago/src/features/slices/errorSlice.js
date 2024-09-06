@@ -27,8 +27,6 @@ export const errorSlice = createSlice({
       switch (errorType) {
         case 'errorBoundary':
           errorToggle(state, 'errorBoundary', { payload: message });
-          console.log('ddddd');
-
           break;
         case 'errorBasket':
           errorToggle(state, 'errorBasket', { payload: message });

@@ -62,9 +62,9 @@ const Footer = () => {
         <Row className="justify-content-md-center">
           <Col md={2} lg={2} sm={2} xs={3}>
             <img
-              src={urlLogo || '/little-lemon-chicago/static/media/logo_footer.4f731344ddfcb242a9b5.webp'}
-              width="auto"
-              height="11rem"
+              src={urlLogo}
+              width="100px"
+            height= "180px"
               loading="eager"
               className={styles.footer_page_logo}
               alt="Little Lemon Logo"
