@@ -32,7 +32,7 @@ const FooterMobile = () => {
       <button
         ref={navBarRef}
         className={styles.btn_to_top}
-        onClick={() => document.getElementById('main_header').scrollIntoView()}
+        onClick={() => document.getElementById('main_main').scrollIntoView({ block: "start", behavior: "smooth" })}
       >
         <ToTop />
       </button>

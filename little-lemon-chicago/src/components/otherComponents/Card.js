@@ -25,7 +25,7 @@ const Card = ({ card, orderBtn = true, onClick, cardOrderButton }) => {
         <footer className={style.footer_card}>
           <button onClick={onClick} ref={cardOrderButton} id={card.id} className={style.order_button} type="ADDED">
             Order a Delivery
-            <Logo onClick={onClick} alt="Delivery logo" className={style.delivery_logo} type="ADDED" />
+            <Logo  alt="Delivery logo" className={style.delivery_logo} type="ADDED" />
           </button>
         </footer>
       )}
