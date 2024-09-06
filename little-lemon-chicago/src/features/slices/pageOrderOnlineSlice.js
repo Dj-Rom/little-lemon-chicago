@@ -6,7 +6,7 @@ export const pageOrderOnlineSlice = createSlice({
     orderList: [],
     orderAmount: 0,
     sendingOrder: false,
-    orderAmounProduct: 0,
+    orderQuantity: 0,
   },
   reducers: {
     ORDER_SENDING_START: (state, action) => {
@@ -16,7 +16,7 @@ export const pageOrderOnlineSlice = createSlice({
       state.sendingOrder = false;
       state.orderList = [];
       state.orderAmount = 0;
-      state.orderAmounProduct = 0;
+      state.orderQuantity = 0;
     },
     ADD_PRODUCT: (state, action) => {
       const { title, price } = action.payload;
@@ -34,7 +34,7 @@ export const pageOrderOnlineSlice = createSlice({
           quantity: 1,
         });
       }
-      state.orderAmounProduct = state.orderList.length;
+      state.orderQuantity += 1;
       state.orderAmount += numericPrice;
     },
     REMOVE_PRODUCT: (state, action) => {
@@ -50,7 +50,7 @@ export const pageOrderOnlineSlice = createSlice({
           state.orderList.splice(productIndex, 1);
         }
       }
-      state.orderAmounProduct = state.orderList.length;
+      state.orderQuantity -= 1;
     },
   },
 });

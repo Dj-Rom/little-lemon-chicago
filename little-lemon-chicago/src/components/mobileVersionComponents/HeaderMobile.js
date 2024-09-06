@@ -64,22 +64,25 @@ const HeaderMobile = () => {
                         height: 'calc(100vh - 16px)',
                         boxShadow: '17px 0px 263px 76px black',
                         overflowY: 'auto',
-                        maxHeight: 'calc(100vh - 22px)',
+                        maxHeight: 'calc(100vh - 16px)',
                         minHeight: 'calc(100vh - 16px)',
-                        left: '0',
-                        top: '0',
+                        marginLeft: '-16px',
+                         top: '0px',
                         position: 'fixed',
                       },
                     }}
                   >
                     <MenuItem
+                        sx={{
+                          left: "12px",
+                        }}
                       onClick={() => {
                         handleClick('/');
                         popupState.close();
                       }}
                       role="menuitem"
                     >
-                      <Logo aria-label="Logo" />
+                      <Logo aria-label="Logo" style={{ marginTop: '25vw' }} />
                     </MenuItem>
                     <MenuItem
                       onClick={() => {
@@ -163,9 +166,9 @@ const HeaderMobile = () => {
             >
               <div className={styles.nav_menu_btn_basket}>
                 <IoBasketOutline style={{ height: '2rem', width: '2rem', marginTop: '-.6rem' }} role={'basket'} />
-                {orderSel.orderAmounProduct !== 0 && (
+                {orderSel.orderQuantity !== 0 && (
                   <span className={styles.nav_menu_btn_basket_amount} style={{ color: 'black' }}>
-                    {orderSel.orderAmounProduct}
+                    {orderSel.orderQuantity}
                   </span>
                 )}
               </div>
