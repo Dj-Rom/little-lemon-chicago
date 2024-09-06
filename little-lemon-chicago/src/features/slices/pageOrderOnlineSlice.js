@@ -19,6 +19,7 @@ export const pageOrderOnlineSlice = createSlice({
       state.orderQuantity = 0;
     },
     ADD_PRODUCT: (state, action) => {
+      state.orderQuantity += 1;
       const { title, price } = action.payload;
 
       const numericPrice = typeof price === 'string' ? parseFloat(price.replace('$', '').trim()) : price;
@@ -34,12 +35,13 @@ export const pageOrderOnlineSlice = createSlice({
           quantity: 1,
         });
       }
-      state.orderQuantity += 1;
+
       state.orderAmount += numericPrice;
     },
     REMOVE_PRODUCT: (state, action) => {
-      const { title, price } = action.payload;
 
+      const { title, price } = action.payload;
+      state.orderQuantity -= 1;
       const productIndex = state.orderList.findIndex((product) => product.title === title);
       state.orderAmount -= price;
       if (productIndex !== -1) {
@@ -50,7 +52,7 @@ export const pageOrderOnlineSlice = createSlice({
           state.orderList.splice(productIndex, 1);
         }
       }
-      state.orderQuantity -= 1;
+
     },
   },
 });

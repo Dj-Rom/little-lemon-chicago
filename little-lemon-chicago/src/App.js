@@ -106,7 +106,7 @@ function App() {
         notification.classList.remove('show');
       }, 1500);
     }
-
+    console.log(e.target);
     const role = e.target.getAttribute('type');
     const itemId = e.target.id || e.target.parentNode.id;
 
